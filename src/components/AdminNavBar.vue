@@ -7,17 +7,6 @@
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
-              <div class="profile-pic">
-                <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="@/assets/images/faces/face15.jpg" alt="">
-                  <span class="count bg-success"></span>
-                </div>
-                <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
-                </div>
-              </div>
-              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
               <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
                 <a href="#" class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
@@ -54,19 +43,24 @@
               </div>
             </div>
           </li>
-          <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-          </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="./admin">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+            <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="./adminincoming" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Incoming</span>
+            </a>
+          </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="./adminoutgoing" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
@@ -74,15 +68,15 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/forms/basic_elements.html">
+            <a class="nav-link" href="./adminpending">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">Maintenance</span>
+              <span class="menu-title">Pending</span>
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/tables/basic-table.html">
+            <a class="nav-link" href="./adminreports">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -90,7 +84,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/charts/chartjs.html">
+            <a class="nav-link" href="./adminusermanagement">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -116,7 +110,7 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
+                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Add New Document</a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <div class="dropdown-divider"></div>
                   <div class="dropdown-divider"></div>

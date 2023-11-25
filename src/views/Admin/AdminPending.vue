@@ -6,7 +6,7 @@
         <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
-        <AdminDashboard></AdminDashboard>
+
       </div>
     </div>
   </div>
