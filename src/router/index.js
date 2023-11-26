@@ -7,6 +7,15 @@ import AdminOutgoing from '../views/Admin/AdminOutgoing.vue'
 import AdminPending from '../views/Admin/AdminPending.vue'
 import AdminReports from '../views/Admin/AdminReports.vue'
 import AdminUserManagement from '../views/Admin/AdminUserManagement.vue'
+import InternalIndex from '../views/Internal User/InternalIndex.vue'
+import InternalIncoming from '../views/Internal User/InternalIncoming.vue'
+import InternalOutgoing from '../views/Internal User/InternalOutgoing.vue'
+import InternalPending from '../views/Internal User/InternalPending.vue'
+import InternalReports from '../views/Internal User/InternalReports.vue'
+import UserIndex from '../views/User/UserIndex.vue'
+import UserNotification from '../views/User/UserNotification.vue'
+import UserProfile from '../views/User/UserProfile.vue'
+import UserSubmit from '../views/User/UserSubmit.vue'
 
 const routes = [
   {
@@ -40,6 +49,42 @@ const routes = [
   {
     path: '/adminusermanagement',
     component: AdminUserManagement
+  },
+  {
+    path: '/internal',
+    component: InternalIndex
+  },
+  {
+    path: '/internalincoming',
+    component: InternalIncoming
+  },
+  {
+    path: '/internaloutgoing',
+    component: InternalOutgoing
+  },
+  {
+    path: '/internalpending',
+    component: InternalPending
+  },
+  {
+    path: '/internalreports',
+    component: InternalReports
+  },
+  {
+    path: '/user',
+    component: UserIndex
+  },
+  {
+    path: '/usernotif',
+    component: UserNotification
+  },
+  {
+    path: '/userprofile',
+    component: UserProfile
+  },
+  {
+    path: '/usersubmit',
+    component: UserSubmit
   },
   {
     path: '/about',
