@@ -9,15 +9,15 @@
               <form @submit.prevent="register">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" class="form-control p_input">
+                  <input v-model="username" type="text" class="form-control p_input">
                 </div>
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control p_input">
+                  <input v-model="password" type="password" class="form-control p_input">
                 </div>
                 <div class="form-group">
                   <label>Confirm Password</label>
-                  <input type="password" class="form-control p_input">
+                  <input v-model="confirmPassword" type="password" class="form-control p_input">
                 </div>
                 <div class="form-group d-flex align-items-center justify-content-between">
                   <div class="form-check">
@@ -29,6 +29,12 @@
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary btn-block enter-btn">Register</button>
                 </div>
+                <div v-if="message" class="mt-3 text-center text-success">
+                  {{ message }}
+                </div>
+                <div v-if="error" class="mt-3 text-center text-danger">
+                  {{ error }}
+                </div>
               </form>
             </div>
           </div>
@@ -39,9 +45,54 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: '',
+      message: '',
+      error: '',
+    };
+  },
+  methods: {
+    async register() {
+      const apiUrl = 'http://document-tracking.test/api/register';
 
+      // Check if passwords match
+      if (this.password !== this.confirmPassword) {
+        this.error = 'Passwords do not match';
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('username', this.username);
+      formData.append('password', this.password);
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          // Registration successful
+          this.message = 'Registration successful';
+          this.error = ''; // Clear previous error message
+        } else {
+          // Registration failed
+          this.error = 'Registration failed: ' + response.statusText;
+          this.message = ''; // Clear previous success message
+        }
+      } catch (error) {
+        console.error('Error during registration:', error);
+        this.error = 'Error during registration';
+        this.message = ''; // Clear previous success message
+      }
+    },
+  },
+};
 </script>
-
 
 <style scoped>
 @import '@/assets/vendors/mdi/css/materialdesignicons.min.css';
