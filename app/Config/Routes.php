@@ -7,4 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('getData', 'UserController::getData');
-$routes->get('register', 'UserController::register');
+$routes->post('api/main/register', 'UserController::register');
+$routes->post('api/main/login', 'UserController::login');

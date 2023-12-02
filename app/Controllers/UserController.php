@@ -27,37 +27,69 @@ class UserController extends ResourceController
         //
     }
 
+
     public function register()
     {
         $request = $this->request;
-
-        // Validate input
+    
         $validationRules = [
             'username' => 'required|min_length[3]',
+            'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]',
             'confirm_password' => 'required|matches[password]',
         ];
-
-        if (!$this->validate($validationRules)) {
-            return $this->fail($this->validator->getErrors(), 400);
+    
+        try {
+            if (!$this->validate($validationRules)) {
+                return $this->fail($this->validator->getErrors(), 400);
+            }
+    
+            $mainModel = new UserModel();
+            $mainModel->save([
+                'username' => $request->getVar('username'),
+                'email' => $request->getVar('email'),
+                'password' => $request->getVar('password'),
+                'role' => 'client',
+            ]);
+    
+            return $this->respond(['message' => 'Registration successful'], 201);
+        } catch (\Exception $e) {
+            // Return an error message with additional details
+            return $this->respondServerError([
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
         }
-
-        $mainModel = new UserModel();
-        $data = [
-            'username' => $request->getVar('username'),
-            'password' => $request->getVar('password'),
-            'role' => 'admin', // Set the role to 'admin' by default
-        ];
-
-        // Debugging: Output the received data
-        var_dump($data);
-
-        // Debugging: Output the model's validation errors
-        var_dump($mainModel->errors());
-
-        $mainModel->save($data);
-
-        return $this->respond(['message' => 'Registration successful'], 201);
     }
-      
+    
+    public function login()
+    {
+        $model = new UserModel();
+    
+        $usernameOrEmail = $this->request->getPost('usernameOrEmail');
+        $password = $this->request->getPost('password');
+    
+        if (empty($usernameOrEmail) || empty($password)) {
+            return $this->respond(['message' => 'Invalid input'], 400);
+        }
+    
+        $user = $model->where('username', $usernameOrEmail)
+                      ->orWhere('email', $usernameOrEmail)
+                      ->first();
+    
+        if ($user && password_verify($password, $user['password'])) {
+            $userData = [
+                'user_id' => $user['user_id'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'role' => $user['role'],
+            ];
+    
+            session()->set($userData);
+    
+            return $this->respond(['role' => $user['role']], 200);
+        } else {
+            return $this->respond(['message' => 'Invalid credentials'], 401);
+        }
+    }    
 }
