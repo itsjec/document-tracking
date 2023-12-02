@@ -6,6 +6,7 @@
         <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
+        <Outgoing></Outgoing>
 
       </div>
     </div>
@@ -15,12 +16,13 @@
 <script>
 import AdminNavBar from '@/components/AdminNavBar.vue';
 import AdminDashboard from '@/components/AdminDashboard.vue';
-
+import Outgoing from '@/components/Outgoing.vue';
 
 export default {
   components: {
     AdminNavBar,
     AdminDashboard,
+    Outgoing,
 
   },
 }
