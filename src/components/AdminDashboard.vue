@@ -43,7 +43,7 @@
     </div>
 
     <!-- Document Details Table -->
-    <div class="row mt-4">
+     <div class="row mt-4">
       <div class="col-md-12">
         <div class="card custom-card">
           <div class="card-body">
@@ -54,33 +54,30 @@
                   <tr>
                     <th>Document ID</th>
                     <th>Title</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Sender</th>
+                    <th>Purpose</th>
                     <th>Location</th>
                     <th>Received From</th>
                     <th>Date Received</th>
                     <th>Required Action</th>
                     <th>Status</th>
                     <th>Action</th>
-                    <!-- Add more columns as needed -->
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Loop through your data and populate the table rows -->
-                  <tr v-for="(document, index) in documentList" :key="index">
-                    <td>{{ document.documentID }}</td>
+                  <tr v-for="document in documentList" :key="document.document_id">
+                    <td>{{ document.document_id }}</td>
                     <td>{{ document.title }}</td>
-                    <td>{{ document.description }}</td>
-                    <td>{{ document.type }}</td>
-                    <td>{{ document.sender }}</td>
+                    <td>{{ document.purpose }}</td>
                     <td>{{ document.location }}</td>
-                    <td>{{ document.receivedFrom }}</td>
-                    <td>{{ document.dateReceived }}</td>
-                    <td>{{ document.requiredAction }}</td>
-                    <td>{{ document.status }}</td>
-                    <td>{{ document.action }}</td>
-                    <!-- Add more columns as needed -->
+                    <td>{{ document.received_from }}</td>
+                    <td>{{ document.date_received }}</td>
+                    <td>{{ document.required_action }}</td>
+                        <span :class="getStatusBadgeClass(document.status)">
+                          {{ document.status }}
+                        </span>
+                    <td>
+                      <button @click="viewDocument(document)" class="btn btn-primary">View</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -93,20 +90,39 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      totalDocuments: 150,
-      incomingDocuments: 50,
-      outgoingDocuments: 70,
-      pendingDocuments: 30,
-      documentList: [
-        // Your array of documents here
-      ],
+      documentList: [],
     };
+  },
+  created() {
+    this.getDocumentList();
+  },
+  methods: {
+    async getDocumentList() {
+      try {
+        const response = await axios.get('http://localhost:8080/getDocu');
+        this.documentList = response.data;
+      } catch (error) {
+        console.error('Error fetching documents:', error);
+      }
+    },
+    getStatusBadgeClass(status) {
+      const badgeClasses = {
+        'pending': 'badge badge-danger',
+        'checked': 'badge badge-warning',
+        'under reviewed': 'badge badge-info',
+        'approved': 'badge badge-success',
+      };
+      return badgeClasses[status] || 'badge badge-secondary';
+    },
   },
 };
 </script>
+
 
 <style scoped>
 .custom-card {

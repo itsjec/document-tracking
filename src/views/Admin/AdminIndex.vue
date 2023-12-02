@@ -43,13 +43,13 @@ export default {
 }
 
 .left-column {
-  width: 260px; 
-  padding: 20px;
+  width: 250px; 
+  padding: 10px;
 }
 
 .right-column {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
 }
 
 </style>
