@@ -9,15 +9,19 @@
               <form @submit.prevent="register">
                 <div class="form-group">
                   <label>Username</label>
-                  <input v-model="username" type="text" class="form-control p_input">
+                  <input v-model="formData.username" type="text" class="form-control p_input">
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input v-model="formData.email" type="text" class="form-control p_input">
                 </div>
                 <div class="form-group">
                   <label>Password</label>
-                  <input v-model="password" type="password" class="form-control p_input">
+                  <input v-model="formData.password" type="password" class="form-control p_input">
                 </div>
                 <div class="form-group">
                   <label>Confirm Password</label>
-                  <input v-model="confirmPassword" type="password" class="form-control p_input">
+                  <input v-model="formData.confirmPassword" type="password" class="form-control p_input">
                 </div>
                 <div class="form-group d-flex align-items-center justify-content-between">
                   <div class="form-check">
@@ -45,49 +49,53 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  name: 'Register',
   data() {
     return {
-      username: '',
-      password: '',
-      confirmPassword: '',
+      formData: {
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      },
       message: '',
       error: '',
     };
   },
   methods: {
     async register() {
-      const apiUrl = 'http://document-tracking.test/api/register';
-
-      // Check if passwords match
-      if (this.password !== this.confirmPassword) {
-        this.error = 'Passwords do not match';
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('username', this.username);
-      formData.append('password', this.password);
-
       try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          body: formData,
+        const response = await axios.post('http://localhost:8080/api/main/register', {
+          username: this.formData.username,
+          email: this.formData.email,
+          password: this.formData.password,
+          confirm_password: this.formData.confirmPassword,
         });
 
-        if (response.ok) {
-          // Registration successful
-          this.message = 'Registration successful';
-          this.error = ''; // Clear previous error message
+        console.log(response); // Log the entire response for debugging
+
+        if (response.status === 201) {
+          console.log(response.data.message);
+          this.message = response.data.message;
+          // Redirect to login page or any other page
+          this.$router.push('/');
         } else {
-          // Registration failed
-          this.error = 'Registration failed: ' + response.statusText;
-          this.message = ''; // Clear previous success message
+          console.error(response.data);
+          this.error = 'Unexpected response format';
         }
       } catch (error) {
         console.error('Error during registration:', error);
-        this.error = 'Error during registration';
-        this.message = ''; // Clear previous success message
+
+        if (error.response && error.response.data) {
+          console.error('Server responded with:', error.response.data);
+          this.error = error.response.data.error || 'Unexpected server error';
+        } else {
+          console.error('Unexpected error format:', error);
+          this.error = 'Unexpected error format';
+        }
       }
     },
   },

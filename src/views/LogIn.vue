@@ -9,11 +9,11 @@
               <form @submit.prevent="login">
                 <div class="form-group">
                   <label>Username or email *</label>
-                  <input type="text" class="form-control p_input">
+                  <input v-model="usernameOrEmail" type="text" class="form-control p_input">
                 </div>
                 <div class="form-group">
                   <label>Password *</label>
-                  <input type="password" class="form-control p_input">
+                  <input v-model="password" type="password" class="form-control p_input">
                 </div>
                 <div class="form-group d-flex align-items-center justify-content-between">
                   <div class="form-check">
@@ -44,6 +44,54 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      usernameOrEmail: '',
+      password: '',
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        // Validate input
+        if (!this.usernameOrEmail || !this.password) {
+          console.error('Invalid input');
+          return;
+        }
+
+        const response = await axios.post('http://localhost:8080/api/main/login', {
+          usernameOrEmail: this.usernameOrEmail,
+          password: this.password,
+        });
+
+        if (response.status === 200) {
+          const userRole = response.data.role;
+
+          switch (userRole) {
+            case 'admin':
+              this.$router.push('/admin');
+              break;
+            case 'office':
+              this.$router.push('/internal');
+              break;
+            case 'client':
+              this.$router.push('/user');
+              break;
+            default:
+              console.error('Unknown user role:', userRole);
+          }
+        } else {
+          console.error('Login failed:', response.data.message);
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
