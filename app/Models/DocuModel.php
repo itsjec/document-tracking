@@ -13,7 +13,7 @@ class DocuModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['document_id','title','purpose','location','received_from', 'date_received', 'required_action', 'status', 'action'];
+    protected $allowedFields    = ['document_id','title','purpose','location','received_from', 'date_received', 'required_action', 'status'];
 
     // Dates
     protected $useTimestamps = false;

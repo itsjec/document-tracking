@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class OfficeModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
-    protected $primaryKey       = 'userid';
+    protected $table            = 'offices';
+    protected $primaryKey       = 'office_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id ', 'username', 'password', 'role'];
+    protected $allowedFields    = ['office_id', 'office_name'];
 
     // Dates
     protected $useTimestamps = false;

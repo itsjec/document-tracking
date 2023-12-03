@@ -34,7 +34,6 @@ class UserController extends ResourceController
     
         $validationRules = [
             'username' => 'required|min_length[3]',
-            'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]',
             'confirm_password' => 'required|matches[password]',
         ];
@@ -47,9 +46,8 @@ class UserController extends ResourceController
             $mainModel = new UserModel();
             $mainModel->save([
                 'username' => $request->getVar('username'),
-                'email' => $request->getVar('email'),
                 'password' => $request->getVar('password'),
-                'role' => 'client',
+                'role' => 'user',
             ]);
     
             return $this->respond(['message' => 'Registration successful'], 201);
