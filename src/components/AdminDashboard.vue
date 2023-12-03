@@ -43,7 +43,7 @@
     </div>
 
     <!-- Document Details Table -->
-     <div class="row mt-4">
+    <div class="row mt-4">
       <div class="col-md-12">
         <div class="card custom-card">
           <div class="card-body">
@@ -52,7 +52,6 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Document ID</th>
                     <th>Title</th>
                     <th>Purpose</th>
                     <th>Location</th>
@@ -65,18 +64,21 @@
                 </thead>
                 <tbody>
                   <tr v-for="document in documentList" :key="document.document_id">
-                    <td>{{ document.document_id }}</td>
                     <td>{{ document.title }}</td>
                     <td>{{ document.purpose }}</td>
                     <td>{{ document.location }}</td>
                     <td>{{ document.received_from }}</td>
                     <td>{{ document.date_received }}</td>
                     <td>{{ document.required_action }}</td>
-                        <span :class="getStatusBadgeClass(document.status)">
-                          {{ document.status }}
-                        </span>
                     <td>
-                      <button @click="viewDocument(document)" class="btn btn-primary">View</button>
+                      <span :class="getStatusBadgeClass(document.status)">
+                        {{ document.status }}
+                      </span>
+                    </td>
+                    <td>
+                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
+                        View
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -119,10 +121,13 @@ export default {
       };
       return badgeClasses[status] || 'badge badge-secondary';
     },
+    viewDocument(document) {
+      // Implement logic to handle the view button click, e.g., show a modal or navigate to a new page
+      console.log('View button clicked for document:', document);
+    },
   },
 };
 </script>
-
 
 <style scoped>
 .custom-card {

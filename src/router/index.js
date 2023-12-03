@@ -16,6 +16,7 @@ import UserIndex from '../views/User/UserIndex.vue'
 import UserNotification from '../views/User/UserNotification.vue'
 import UserProfile from '../views/User/UserProfile.vue'
 import UserSubmit from '../views/User/UserSubmit.vue'
+import AddDocu from '../views/Admin/AddDocu.vue'
 
 const routes = [
   {
@@ -85,6 +86,10 @@ const routes = [
   {
     path: '/usersubmit',
     component: UserSubmit
+  },
+  {
+    path: '/adddocu',
+    component: AddDocu
   },
   {
     path: '/about',

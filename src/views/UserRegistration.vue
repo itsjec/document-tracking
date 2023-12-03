@@ -12,10 +12,6 @@
                   <input v-model="formData.username" type="text" class="form-control p_input">
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
-                  <input v-model="formData.email" type="text" class="form-control p_input">
-                </div>
-                <div class="form-group">
                   <label>Password</label>
                   <input v-model="formData.password" type="password" class="form-control p_input">
                 </div>
@@ -57,7 +53,6 @@ export default {
     return {
       formData: {
         username: '',
-        email: '',
         password: '',
         confirmPassword: '',
       },
@@ -70,7 +65,6 @@ export default {
       try {
         const response = await axios.post('http://localhost:8080/api/main/register', {
           username: this.formData.username,
-          email: this.formData.email,
           password: this.formData.password,
           confirm_password: this.formData.confirmPassword,
         });

@@ -110,7 +110,7 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Add New Document</a>
+              <a class="nav-link btn btn-success create-new-button" data-toggle="modal" data-target="#myModal">+ Add New Document</a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <div class="dropdown-divider"></div>
                   <div class="dropdown-divider"></div>
