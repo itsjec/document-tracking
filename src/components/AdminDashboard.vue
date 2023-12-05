@@ -15,7 +15,7 @@
       <div class="col-md-3">
         <div class="card custom-card">
           <div class="card-body">
-            <h5 class="card-title">Incoming Documents</h5>
+            <h5 class="card-title">Pending Documents</h5>
             <p class="card-text">{{ incomingDocuments }}</p>
           </div>
         </div>
@@ -25,7 +25,7 @@
       <div class="col-md-3">
         <div class="card custom-card">
           <div class="card-body">
-            <h5 class="card-title">Outgoing Documents</h5>
+            <h5 class="card-title">Ongoing Documents</h5>
             <p class="card-text">{{ outgoingDocuments }}</p>
           </div>
         </div>
@@ -35,7 +35,7 @@
       <div class="col-md-3">
         <div class="card custom-card">
           <div class="card-body">
-            <h5 class="card-title">Pending Documents</h5>
+            <h5 class="card-title">Completed Documents</h5>
             <p class="card-text">{{ pendingDocuments }}</p>
           </div>
         </div>
