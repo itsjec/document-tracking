@@ -21,6 +21,7 @@ import Incoming from '@/components/Incoming.vue';
 export default {
   components: {
     AdminNavBar,
+    AdminDashboard,
     Incoming,
 
   },
