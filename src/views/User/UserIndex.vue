@@ -1,132 +1,110 @@
 <template>
-  <div>
-
-    <div class="top-bar">
-        <!-- Logo -->
-        <div class="logo">
-          <img :src="require('@/assets/images/logocalapan.png')" alt="Your Logo">
-        </div>
-
-        <div class="middle-section">
-          <h1>City Hall Document Tracking</h1>
-        </div>
-
-        <form class="navbar-form form-inline">
-          <div class="input-group search-box">								
-            <input type="text" id="search" class="form-control" placeholder="Track Document...">
-            <div class="input-group-append">
-              <span class="input-group-text">
-                <i class="material-icons">&#xE8B6;</i>
-              </span>
-            </div>
-          </div>
-        </form>
-      </div>
-    <!-- Contact Us Form -->
-    <div class="row mt-4">
-      <div class="col-md-8 mx-auto">
-        <!-- Your existing Contact Us form goes here -->
-        <div class="contact-form">
-          <h1>Register your document !</h1>
-          <p class="hint-text">We'd love to assist you. Please complete the details below.</p>
-          <form action="/examples/actions/confirmation.php" method="post">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="inputFirstName">Your Full Name</label>
-                  <input type="text" class="form-control" id="inputFirstName" placeholder="From" required>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="inputLastName">Document Title</label>
-                  <input type="text" class="form-control" id="inputLastName" placeholder="Document Title" required>
-                </div>
-              </div>
-            </div>            
-            <div class="form-group">
-              <label for="selectPurpose">Receiving Office</label>
-              <select class="form-control" id="selectPurpose" required>
-                <option value="" disabled selected>Select Office</option>
-                <option value="purpose1">Office 1</option>
-                <option value="purpose2">Office 2</option>
-                <!-- Add more options as needed -->
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="inputMessage">Purpose</label>
-              <textarea class="form-control" id="inputMessage" placeholder="Purpose" rows="5" required></textarea>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Submit">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<style scoped>
-/* Contact Form Styling */
-.contact-form {
-  padding: 50px;
-  margin: 30px 0;
-  background-color: #
-}
-
-.contact-form h1 {
-  text-transform: uppercase;
-  margin: 0 0 15px;
-}
-
-.contact-form .form-control,
-.contact-form .btn  {
-  min-height: 38px;
-  border-radius: 2px;
-}
-
-.contact-form .btn-primary {
-  min-width: 150px;
-  background: #299be4;
-  border: none;
-}
-
-.contact-form .btn-primary:hover {
-  background: #1c8cd7; 
-}
-
-.contact-form label {
-  opacity: 0.9;
-}
-
-.contact-form textarea {
-  resize: vertical;
-}
-
-.hint-text {
-  font-size: 15px;
-  padding-bottom: 15px;
-  opacity: 0.8;
-}
-
-.top-bar {
-  background-color: #f8f9fa;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  max-height: 35px;
-}
-
-.search-bar {
-  flex: 1;
-  margin-left: 20px;
-}
-
-.middle-section h1{
-  color:#7324a4;
-  font-size:20px;
-}
-</style>
+	<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet"  href="codescaptain.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	
+	</head>
+	<body>
+		<div class="search-box">
+			<input type="text" class="search-txt" placeholder="Search">
+			<a class="search-btn">
+				<i class="fas fa-search"></i>
+			</a>
+		</div>
+		
+	
+	
+	</body>
+	</html>
+	</template>
+	
+	<script>
+	import axios from 'axios';
+	
+	export default {
+	  data() {
+		return {
+		  documentList: [],
+		};
+	  },
+	  created() {
+		this.getDocumentList();
+	  },
+	  methods: {
+		async getDocumentList() {
+		  try {
+			const response = await axios.get('http://localhost:8080/getDocu');
+			this.documentList = response.data;
+		  } catch (error) {
+			console.error('Error fetching documents:', error);
+		  }
+		},
+		getStatusBadgeClass(status) {
+		  const badgeClasses = {
+			'pending': 'badge badge-danger',
+			'checked': 'badge badge-warning',
+			'under reviewed': 'badge badge-info',
+			'approved': 'badge badge-success',
+		  };
+		  return badgeClasses[status] || 'badge badge-secondary';
+		},
+		viewDocument(document) {
+		  // Implement logic to handle the view button click, e.g., show a modal or navigate to a new page
+		  console.log('View button clicked for document:', document);
+		},
+	  },
+	};
+	</script>
+	
+	<style scoped>
+	.custom-card {
+	  background-color: #191c24 !important;
+	  color: #ffffff !important;
+	}
+	.search-box {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background: #353b48;
+	  height: 60px;
+	  border-radius: 50px;
+	  padding: 10px;
+	}
+	
+	.search-box:hover .search-txt {
+	  width: 200px;
+	  padding: 0 6px;
+	}
+	
+	.search-box:hover .search-btn {
+	  background: #fff;
+	}
+	
+	.search-btn {
+	  color: #e84118;
+	  float: right;
+	  width: 40px;
+	  height: 40px;
+	  border-radius: 50%;
+	  background: #487eb0;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+	
+	.search-txt {
+	  border: none;
+	  outline: none;
+	  background: none;
+	  float: left;
+	  padding: 0;
+	  color: #fff;
+	  font-size: 16px;
+	  line-height: 40px;
+	  width: 0;
+	  transition: width 400ms;
+	}
+	</style>
