@@ -6,8 +6,7 @@
         <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
-      <Pending></Pending>
-
+        <AdminPending></AdminPending>
       </div>
     </div>
   </div>
@@ -15,15 +14,14 @@
 
 <script>
 import AdminNavBar from '@/components/AdminNavBar.vue';
-import Pending from '@/components/Pending.vue';
+import AdminPending from '@/components/AdminPending.vue';
 
 
 export default {
   components: {
     AdminNavBar,
-    Pending,
-
-  },
+    AdminPending,
+},
 }
 </script>
 

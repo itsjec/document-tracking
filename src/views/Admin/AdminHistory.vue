@@ -6,7 +6,7 @@
         <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
-        <AdminDashboard></AdminDashboard>
+        <AdminHistory></AdminHistory>
       </div>
     </div>
   </div>
@@ -15,14 +15,15 @@
 <script>
 import AdminNavBar from '@/components/AdminNavBar.vue';
 import AdminDashboard from '@/components/AdminDashboard.vue';
+import AdminHistory from '@/components/AdminHistory.vue';
 
 
 export default {
   components: {
     AdminNavBar,
     AdminDashboard,
-
-  },
+    AdminHistory
+},
 }
 </script>
 
