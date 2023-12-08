@@ -1,93 +1,122 @@
 <template>
   <div class="container mt-5">
-    <div class="row">
-      <!-- Total Documents Card -->
-      <div class="col-md-3">
-        <div class="card custom-card">
-          <div class="card-body">
-            <h5 class="card-title">Total Documents</h5>
-            <p class="card-text">{{ totalDocuments }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Incoming Documents Card -->
-      <div class="col-md-3">
-        <div class="card custom-card">
-          <div class="card-body">
-            <h5 class="card-title">Pending Documents</h5>
-            <p class="card-text">{{ incomingDocuments }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Outgoing Documents Card -->
-      <div class="col-md-3">
-        <div class="card custom-card">
-          <div class="card-body">
-            <h5 class="card-title">Ongoing Documents</h5>
-            <p class="card-text">{{ outgoingDocuments }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pending Documents Card -->
-      <div class="col-md-3">
-        <div class="card custom-card">
-          <div class="card-body">
-            <h5 class="card-title">Completed Documents</h5>
-            <p class="card-text">{{ pendingDocuments }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Document Details Table -->
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <div class="card custom-card">
-          <div class="card-body">
-            <h5 class="card-title">Document Details</h5>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Purpose</th>
-                    <th>Location</th>
-                    <th>Received From</th>
-                    <th>Date Received</th>
-                    <th>Required Action</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="document in documentList" :key="document.document_id">
-                    <td>{{ document.title }}</td>
-                    <td>{{ document.purpose }}</td>
-                    <td>{{ document.location }}</td>
-                    <td>{{ document.received_from }}</td>
-                    <td>{{ document.date_received }}</td>
-                    <td>{{ document.required_action }}</td>
-                    <td>
-                      <span :class="getStatusBadgeClass(document.status)">
-                        {{ document.status }}
-                      </span>
-                    </td>
-                    <td>
-                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
-                        View
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+<div class="row">
+  <!-- Pending Section -->
+  <div class="col-sm-4 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h5>Pending</h5>
+        <div class="row">
+          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+            <div class="d-flex d-sm-block d-md-flex align-items-center">
+              <h2 class="mb-0">5000</h2>
+              <p class="text-danger ml-2 mb-0 font-weight-medium">+9</p>
             </div>
+            <h6 class="text-muted font-weight-normal">2.5% Since last month</h6>
+          </div>
+          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+            <i class="icon-lg mdi mdi-clock text-warning ml-auto"></i>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- In Progress Section -->
+  <div class="col-sm-4 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h5>In Progress</h5>
+        <div class="row">
+          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+            <div class="d-flex d-sm-block d-md-flex align-items-center">
+              <h2 class="mb-0">7500</h2>
+              <p class="text-success ml-2 mb-0 font-weight-medium">+9</p>
+            </div>
+            <h6 class="text-muted font-weight-normal">8.2% Since last month</h6>
+          </div>
+          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+            <i class="icon-lg mdi mdi-refresh text-info ml-auto"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completed Section -->
+  <div class="col-sm-4 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h5>Completed</h5>
+        <div class="row">
+          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+            <div class="d-flex d-sm-block d-md-flex align-items-center">
+              <h2 class="mb-0">12000</h2>
+              <p class="text-success ml-2 mb-0 font-weight-medium">+9</p>
+            </div>
+            <h6 class="text-muted font-weight-normal">15.3% Since last month</h6>
+          </div>
+          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+            <i class="icon-lg mdi mdi-check text-success ml-auto"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Document Details Table -->
+<div class="row mt-4">
+  <div class="col-md-12">
+    <div class="card custom-card">
+      <div class="card-body">
+        <h5 class="card-title">All Documents</h5>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tracking Number</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Purpose</th>
+                <th>Date Registered</th>
+                <th>Status</th>
+                <th>Progress</th>
+                <th>Location</th>
+                <th>Office ID</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="document in documentList" :key="document.document_id">
+                <td>{{ document.tracking_number }}</td>
+                <td>{{ document.title }}</td>
+                <td>{{ document.author }}</td>
+                <td>{{ document.purpose }}</td>
+                <td>{{ document.date_received }}</td>
+                <td>
+                  <span :class="getStatusBadgeClass(document.status)">
+                    {{ document.status }}
+                  </span>
+                </td>
+                <td>{{ document.progress }}</td>
+                <td>{{ document.location }}</td>
+                <td>{{ document.office_id }}</td>
+                <td>
+                  <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
+                    View
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
 </template>
 

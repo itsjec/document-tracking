@@ -34,7 +34,7 @@ export default {
 }
 
 .top-section {
-  padding: 20px;
+  padding: 50px;
   width: 80rem;
 }
 
@@ -50,6 +50,8 @@ export default {
 .right-column {
   flex: 1;
   padding: 10px;
+  background-color: #000000;
+  margin-top: 20px;
 }
 
 </style>
