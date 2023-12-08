@@ -61,7 +61,7 @@
 	<style scoped>
 	.custom-card {
 	  background-color: #191c24 !important;
-	  color: #ffffff !important;
+	  color: #000 !important;
 	}
 	.search-box {
 	  position: absolute;
