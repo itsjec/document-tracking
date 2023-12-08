@@ -55,7 +55,7 @@ body {
 	height: 100px;
 	border-radius: 50%;
 	z-index: 9;
-	background: #4aba70;
+	background: #683d99;
 	padding: 15px;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
@@ -75,7 +75,7 @@ body {
 	line-height: 26px;
 	min-width: 120px;
 	font-weight: bold;
-	background: #4aba70 !important;
+	background: #683d99 !important;
 	border: none;		
 }
 .login-form .btn:hover, .login-form .btn:focus{
@@ -88,7 +88,7 @@ body {
 	margin-top: 3px;
 }
 .login-form a {
-	color: #4aba70;
+	color: #683d99;
 }	
 .login-form a:hover {
 	text-decoration: underline;

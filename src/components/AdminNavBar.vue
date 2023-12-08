@@ -3,12 +3,11 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
       <a class="sidebar-brand brand-logo" href="../admin">
-        <div class="logo-container">
-          <img :src="require('@/assets/images/logocalapan.png')" alt="Your Logo">
+    <div class="logo-container">
+          <img :src="require('@/assets/images/logocalapan2.png')" alt="Your Logo">
         </div>
       </a>
-      <a class="sidebar-brand brand-logo-mini" href="../admin">
-      </a>
+          <a class="sidebar-brand brand-logo-mini" href="../admin"></a>
     </div>
         <ul class="nav">
           <li class="nav-item menu-items">
