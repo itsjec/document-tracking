@@ -6,6 +6,7 @@
         <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
+        <UserManagement></UserManagement>
 
       </div>
     </div>
@@ -15,12 +16,14 @@
 <script>
 import AdminNavBar from '@/components/AdminNavBar.vue';
 import AdminDashboard from '@/components/AdminDashboard.vue';
+import UserManagement from '@/components/UserManagement.vue';
 
 
 export default {
   components: {
     AdminNavBar,
     AdminDashboard,
+    UserManagement,
 
   },
 }
