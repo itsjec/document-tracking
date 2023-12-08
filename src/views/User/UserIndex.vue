@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="search-box">
-		<input type="text" class="search-txt" placeholder="Search">
+		<input type="text" class="search-txt" placeholder="Track your document">
 		<a class="search-btn">
 			<i class="fas fa-search"></i>
 		</a>
