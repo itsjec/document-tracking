@@ -3,9 +3,10 @@
     <div class="bottom-section">
       <div class="left-column">
 
-        <InternalNavBar></InternalNavBar>
+        <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
+        <Pending></Pending>
 
       </div>
     </div>
@@ -14,13 +15,11 @@
 
 <script>
 import AdminNavBar from '@/components/AdminNavBar.vue';
-import InternalNavBar from '@/components/InternalNavBar.vue';
 
 
 export default {
   components: {
     AdminNavBar,
-    InternalNavBar,
 
   },
 }
@@ -43,13 +42,13 @@ export default {
 }
 
 .left-column {
-  width: 260px; 
-  padding: 20px;
+  width: 250px; 
+  padding: 10px;
 }
 
 .right-column {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
 }
 
 </style>

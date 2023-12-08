@@ -1,101 +1,138 @@
 <template>
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="row w-100 m-0">
-        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
-          <div class="card col-lg-4 mx-auto">
-            <div class="card-body px-5 py-5">
-              <h3 class="card-title text-left mb-3">Login</h3>
-              <form @submit.prevent="login">
-                <div class="form-group">
-                  <label>Username or email *</label>
-                  <input v-model="usernameOrEmail" type="text" class="form-control p_input">
-                </div>
-                <div class="form-group">
-                  <label>Password *</label>
-                  <input v-model="password" type="password" class="form-control p_input">
-                </div>
-                <div class="form-group d-flex align-items-center justify-content-between">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input"> Remember me </label>
-                  </div>
-                  <a href="#" class="forgot-pass">Forgot password</a>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
-                </div>
-                <div class="d-flex">
-                  <button class="btn btn-facebook mr-2 col">
-                    <i class="mdi mdi-facebook"></i> Facebook
-                  </button>
-                  <button class="btn btn-google col">
-                    <i class="mdi mdi-google-plus"></i> Google plus
-                  </button>
-                </div>
-                <p class="sign-up">Don't have an Account?<router-link to="/register"> Sign Up</router-link></p>
-              </form>
-            </div>
-          </div>
+  <div class="modal-login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="avatar">
+          <img :src="require('@/assets/images/avatar.png')" alt="Your Logo">
         </div>
+        <h4 class="modal-title">User Log In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/examples/actions/confirmation.php" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#">Forgot Password?</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-
-export default {
-  data() {
-    return {
-      usernameOrEmail: '',
-      password: '',
-    };
-  },
-  methods: {
-    async login() {
-      try {
-        // Validate input
-        if (!this.usernameOrEmail || !this.password) {
-          console.error('Invalid input');
-          return;
-        }
-
-        const response = await axios.post('http://localhost:8080/api/main/login', {
-          usernameOrEmail: this.usernameOrEmail,
-          password: this.password,
-        });
-
-        if (response.status === 200) {
-          const userRole = response.data.role;
-
-          switch (userRole) {
-            case 'admin':
-              this.$router.push('/admin');
-              break;
-            case 'office':
-              this.$router.push('/internal');
-              break;
-            case 'client':
-              this.$router.push('/user');
-              break;
-            default:
-              console.error('Unknown user role:', userRole);
-          }
-        } else {
-          console.error('Login failed:', response.data.message);
-        }
-      } catch (error) {
-        console.error('Error during login:', error);
-      }
-    },
-  },
-};
 </script>
 
-<style scoped>
-@import '@/assets/vendors/mdi/css/materialdesignicons.min.css';
-@import '@/assets/vendors/css/vendor.bundle.base.css';
-@import '@/assets/css/style.css';
+<style>
+body {
+  font-family: 'Varela Round', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.modal-login {
+  color: #636363;
+  width: 350px;
+}
+
+.modal-login .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.modal-login .modal-header {
+  border-bottom: none;
+  position: relative;
+  justify-content: center;
+}
+
+.modal-login h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -15px;
+}
+
+.modal-login .form-control:focus {
+  border-color: #70c5c0;
+}
+
+.modal-login .form-control,
+.modal-login .btn {
+  min-height: 40px;
+  border-radius: 3px;
+}
+
+.modal-login .close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.modal-login .modal-footer {
+  background: #ecf0f1;
+  border-color: #dee4e7;
+  text-align: center;
+  justify-content: center;
+  margin: 0 -20px -20px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.modal-login .modal-footer a {
+  color: #999;
+}
+
+.modal-login .avatar {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -70px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  z-index: 9;
+  background: #60c7c1;
+  padding: 15px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-login .avatar img {
+  width: 100%;
+}
+
+.modal-login.modal-dialog {
+  margin-top: 80px;
+}
+
+.modal-login .btn,
+.modal-login .btn:active {
+  color: #fff;
+  border-radius: 4px;
+  background: #60c7c1 !important;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  border: none;
+}
+
+.modal-login .btn:hover,
+.modal-login .btn:focus {
+  background: #45aba6 !important;
+  outline: none;
+}
+
+
+
 </style>

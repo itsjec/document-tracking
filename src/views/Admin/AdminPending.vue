@@ -7,7 +7,6 @@
       </div>
       <div class="right-column">
         <Pending></Pending>
-
       </div>
     </div>
   </div>
@@ -24,8 +23,7 @@ export default {
     AdminNavBar,
     AdminDashboard,
     Pending,
-
-  },
+},
 }
 </script>
 
