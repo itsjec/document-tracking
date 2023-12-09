@@ -91,3 +91,269 @@ in APPPATH\Controllers\DocuController.php on line 27.
  3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 10:44:56 --> Undefined property: Config\App::$jwtKey
+in APPPATH\Controllers\UserController.php on line 16.
+ 1 APPPATH\Controllers\UserController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\App::$jwtKey', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 10:44:57 --> Undefined property: Config\App::$jwtKey
+in APPPATH\Controllers\UserController.php on line 16.
+ 1 APPPATH\Controllers\UserController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\App::$jwtKey', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 10:45:09 --> Undefined property: Config\App::$jwtKey
+in APPPATH\Controllers\UserController.php on line 16.
+ 1 APPPATH\Controllers\UserController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\App::$jwtKey', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 10:45:49 --> Undefined property: Config\App::$jwtKey
+in APPPATH\Controllers\UserController.php on line 16.
+ 1 APPPATH\Controllers\UserController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\App::$jwtKey', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 10:57:12 --> Undefined property: Config\App::$jwtKey
+in APPPATH\Controllers\UserController.php on line 16.
+ 1 APPPATH\Controllers\UserController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\App::$jwtKey', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 11:42:28 --> Undefined property: Config\App::$jwtKey
+in APPPATH\Controllers\UserController.php on line 16.
+ 1 APPPATH\Controllers\UserController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\App::$jwtKey', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-09 11:59:25 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 11:59:32 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 12:03:10 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+CRITICAL - 2023-12-09 12:11:28 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:12:26 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:13:33 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:26:32 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:28:48 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:28:53 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:29:07 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:29:09 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:29:24 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:29:27 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:42:06 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:43:21 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:43:23 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:43:25 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:43:31 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:43:32 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-09 12:44:58 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:44:58 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:45:04 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:46:12 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:49:40 --> Call to undefined method Config\JWT::key()
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:54:14 --> Attempt to read property "key" on null
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 APPPATH\Controllers\UserController.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "key" on null', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 18)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:54:15 --> Attempt to read property "key" on null
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 APPPATH\Controllers\UserController.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "key" on null', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 18)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 12:54:47 --> Attempt to read property "key" on null
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 APPPATH\Controllers\UserController.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "key" on null', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 18)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 13:15:46 --> Attempt to read property "key" on null
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 APPPATH\Controllers\UserController.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "key" on null', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 18)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 13:20:56 --> Attempt to read property "key" on null
+in APPPATH\Controllers\UserController.php on line 18.
+ 1 APPPATH\Controllers\UserController.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "key" on null', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\UserController.php', 18)
+ 2 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\UserController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-09 13:22:57 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 13:22:58 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 13:22:58 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 13:22:58 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 13:23:07 --> Login Error: Call to undefined method App\Models\UserModel::validateLogin
+ERROR - 2023-12-09 13:54:48 --> JWT Token Encoding Error: key must be a string when using hmac
+CRITICAL - 2023-12-09 14:37:11 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 41.
+ 1 APPPATH\Controllers\DocuController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 14:39:46 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 41.
+ 1 APPPATH\Controllers\DocuController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 14:39:50 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 41.
+ 1 APPPATH\Controllers\DocuController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 14:39:51 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 41.
+ 1 APPPATH\Controllers\DocuController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 14:39:52 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 41.
+ 1 APPPATH\Controllers\DocuController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 14:40:00 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 41.
+ 1 APPPATH\Controllers\DocuController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()

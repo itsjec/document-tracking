@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('getData', 'UserController::getData');
-$routes->post('/api/login', 'UserController::login');
+$routes->post('api/login', 'UserController::login');
 $routes->get('/getDocu', 'DocuController::getDocu');
 $routes->get('/getOffice', 'DocuController::getOffice');
 $routes->group('api', function ($routes) {
@@ -16,6 +16,9 @@ $routes->group('api', function ($routes) {
     $routes->get('documents/last-inserted-tracking-number', 'DocuController::getLastInsertedTrackingNumber'); // Add this line
 });
 
+$routes->get('test', function () {
+    return 'Test route works!';
+});
 
 
 

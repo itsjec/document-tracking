@@ -6,6 +6,9 @@ use App\Controllers\BaseController;
 use CodeIgniter\Restful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\UserModel;
+use Config\JWT as CodeIgniterJWT; // Alias CodeIgniter's JWT class
+use \Firebase\JWT\JWT;
+
 
 class UserController extends ResourceController
 {
@@ -22,29 +25,55 @@ class UserController extends ResourceController
         return $this->respond($data, 200);
     }
 
+    private $key;
+
     public function login()
     {
-        $model = new AdminModel();
+        try {
+            $model = new UserModel();
+    
+            $username = $this->request->getVar('username'); 
+            $password = $this->request->getVar('password');  
+    
+            $whereClause = [
+                'AdminUsername' => $username,
+                'AdminPassword' => $password
+            ];
+            // $user = $model->validateLogin($username, $password);
+            $user = $model->where($whereClause)->first(); // try mo nga ulit
+            if(is_null($user)){
+                return $this->respond(['error' => 'Invalid username or password']);
+            }
 
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+            if ($user) {
+                $token = $this->generateToken($user);
+                return $this->respond(['token' => $token], 200);
+            } else {
+                return $this->respond(['error' => 'Invalid username or password'], 401);
+            }
+        } catch (\Throwable $th) {
+            return $this->respond(['error' => 'Login Error: ' . $th->getMessage()]);
+        }        
+    }
+    
 
-        $admin = $model->where('AdminUsername', $username)
-                      ->where('AdminPassword', $password)
-                      ->first();
+    private function generateToken($user)
+    {
+        $key = getenv('JWT_SECRET');
 
-        if ($admin) {
-            // Successful login
-            return $this->respond(['success' => true, 'officeId' => $admin['OfficeID']]);
-        } else {
-            // Failed login
-            return $this->respond(['success' => false]);
+        $payload = [
+            'user_id' => $user['OfficeID'],
+            'iat'     => time(),
+            'exp'     => time() + 3600,
+        ];
+    
+        try {
+            $token = JWT::encode($payload, $key, 'HS256');
+            return $token;
+        } catch (\Exception $e) {
+            log_message('error', 'JWT Token Encoding Error: ' . $e->getMessage());
+            return null;
         }
     }
-
-    public function index()
-    {
-        //
-    }
-  
+    
 }
