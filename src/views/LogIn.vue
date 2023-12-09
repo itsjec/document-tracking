@@ -1,26 +1,62 @@
 <template>
-<div class="login-form">
-	<h2 class="text-center">Admin Login</h2>
-    <form action="/examples/actions/confirmation.php" method="post">
+	<div class="login-form">
+	  <h2 class="text-center">Admin Login</h2>
+	  <form @submit.prevent="login">
 		<div class="avatar">
-			<img :src="require('@/assets/images/avatar.png')" alt="Avatar">
-		</div>           
-        <div class="form-group">
-        	<input type="text" class="form-control input-lg" name="username" placeholder="Username" required="required">	
-        </div>
+		  <img :src="require('@/assets/images/avatar.png')" alt="Avatar">
+		</div>
 		<div class="form-group">
-            <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
-        </div>        
-        <div class="form-group clearfix">
-			<label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-            <button type="submit" class="btn btn-primary btn-lg float-right">Sign in</button>
-        </div>		
-    </form>
-</div>
-</template>
+		  <label for="username">Username:</label>
+		  <input v-model="formData.username" type="text" class="form-control input-lg" id="username" placeholder="Enter your username" required>
+		</div>
+		<div class="form-group">
+		  <label for="password">Password:</label>
+		  <input v-model="formData.password" type="password" class="form-control input-lg" id="password" placeholder="Enter your password" required>
+		</div>
+		<div class="form-group clearfix">
+		  <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+		  <button type="submit" class="btn btn-primary btn-lg float-right">Sign in</button>
+		</div>
+	  </form>
+	</div>
+  </template>
+  
+  <script>
+  export default {
+	data() {
+	  return {
+		formData: {
+		  username: '',
+		  password: '',
+		},
+	  };
+	},
+	methods: {
+		async login() {
+			console.log('Login method triggered');
+			console.log('FormData:', this.formData);
 
-<script>
-</script>
+			try {
+			const response = await this.$axios.post('/api/login', {
+				username: this.formData.username,
+				password: this.formData.password,
+			});
+
+			console.log('Response:', response);
+
+			if (response.data.success) {
+				this.$router.push(`/admin/${response.data.officeId}`);
+			} else {
+				console.error('Login failed');
+			}
+			} catch (error) {
+			console.error('Error during login:', error);
+			}
+		},
+	}
+  };
+  </script>
+  
 
 <style>
 body {
