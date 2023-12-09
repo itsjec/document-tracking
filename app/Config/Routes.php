@@ -7,8 +7,15 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('getData', 'UserController::getData');
-$routes->post('api/main/register', 'UserController::register');
-$routes->post('api/main/login', 'UserController::login');
+$routes->post('/api/login', 'UserController::login');
 $routes->get('/getDocu', 'DocuController::getDocu');
 $routes->get('/getOffice', 'DocuController::getOffice');
-$routes->post('/saveDocument', 'DocuController::saveDocument');
+$routes->group('api', function ($routes) {
+    $routes->post('documents/insert', 'DocuController::insert');
+    $routes->get('documents/last-inserted', 'DocuController::getLastInsertedDocument'); // Fix the controller name
+    $routes->get('documents/last-inserted-tracking-number', 'DocuController::getLastInsertedTrackingNumber'); // Add this line
+});
+
+
+
+

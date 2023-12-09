@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class PendingModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'offices';
-    protected $primaryKey       = 'OfficeID';
+    protected $table            = 'pendingdocuments';
+    protected $primaryKey       = 'DocumentID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['OfficeID ', 'OfficeName', 'AdminUsername', 'AdminPassword'];
+    protected $allowedFields    = ['DocumentID', 'Title','Author','Purpose','DateReceived','Status','Progress','TrackingNumber','Location','OfficeID'];
 
     // Dates
     protected $useTimestamps = false;

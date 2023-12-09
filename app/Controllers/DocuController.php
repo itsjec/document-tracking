@@ -20,7 +20,20 @@ class DocuController extends ResourceController
         //
     }
 
+    public function getLastTrackingNumber()
+    {
+        header('Access-Control-Allow-Origin: http://localhost:8081');
     
+        $lastTrackingNumber = DocuModel::orderBy('DocumentID', 'DESC')->first();
+    
+        if ($lastTrackingNumber) {
+            return $this->response->setJSON(['trackingNumber' => $lastTrackingNumber->trackingNumber]);
+        } else {
+            return $this->response->setJSON(['trackingNumber' => null]);
+        }
+    }    
+
+
     public function getDocu()
     {
         header('Access-Control-Allow-Origin: http://localhost:8081');
@@ -37,23 +50,63 @@ class DocuController extends ResourceController
         return $this->respond($data, 200);
     }
 
-    public function saveDocument()
+    public function insert()
     {
-        $model = new DocuModel();
+        try {
+            $trackingNumber = $this->generateTrackingNumber(); 
 
+            $data = [
+                'Title' => $this->request->getVar('title'),
+                'Author' => $this->request->getVar('author'),
+                'Purpose' => $this->request->getVar('purpose'),
+                'DateReceived' => date('Y-m-d'), 
+                'Status' => 'Pending',
+                'Progress' => 'For Approval',
+                'TrackingNumber' => $trackingNumber,
+                'Location' => $this->request->getVar('Location'),
+                'OfficeID' => $this->request->getVar('Location'),
+            ];
 
-        $data = [
-            'title' => $this->request->getPost('title'),
-            'purpose' => $this->request->getPost('purpose'),
-            'location' => $this->request->getPost('location'),
-            'received_from' => $this->request->getPost('received_from'),
-            'date_received' => $this->request->getPost('date_received'),
-            'required_action' => $this->request->getPost('required_action'),
-            'status' => $this->request->getPost('status'),
-        ];
+            $model = new DocuModel();
+            $result = $model->insert($data);
 
-        $model->insert($data);
-        return $this->response->setJSON(['success' => true]);
+            if ($result) {
+                return $this->respond(['success' => true, 'message' => 'Document inserted successfully']);
+            } else {
+                return $this->respond(['success' => false, 'message' => 'Failed to insert document']);
+            }
+        } catch (\Throwable $th) {
+            return $this->respond(["message" => "Error: ".$th->getMessage()]);
+        }
     }
 
+    private function generateTrackingNumber()
+    {
+        $prefix = 'TN'; 
+        $timestamp = date('YmdHis');
+        $randomPart = strtoupper(substr(md5(uniqid(rand(), true)), 0, 6)); 
+
+        $trackingNumber = "{$prefix}-{$timestamp}-{$randomPart}";
+
+        return $trackingNumber;
+    }
+
+    public function getLastInsertedTrackingNumber()
+    {
+        $model = new DocuModel();
+    
+        $lastInsertedDocument = $model
+            ->orderBy('DocumentID', 'DESC')
+            ->first();
+    
+        if ($lastInsertedDocument) {
+            $trackingNumber = $lastInsertedDocument['TrackingNumber'];
+            return $this->respond(['TrackingNumber' => $trackingNumber], 200);
+        } else {
+            return $this->respond(['error' => 'No documents found'], 404);
+        }
+    }      
+
+    
+    
 }

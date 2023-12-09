@@ -22,72 +22,29 @@ class UserController extends ResourceController
         return $this->respond($data, 200);
     }
 
+    public function login()
+    {
+        $model = new AdminModel();
+
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+
+        $admin = $model->where('AdminUsername', $username)
+                      ->where('AdminPassword', $password)
+                      ->first();
+
+        if ($admin) {
+            // Successful login
+            return $this->respond(['success' => true, 'officeId' => $admin['OfficeID']]);
+        } else {
+            // Failed login
+            return $this->respond(['success' => false]);
+        }
+    }
+
     public function index()
     {
         //
     }
-
-
-    public function register()
-    {
-        $request = $this->request;
-    
-        $validationRules = [
-            'username' => 'required|min_length[3]',
-            'password' => 'required|min_length[6]',
-            'confirm_password' => 'required|matches[password]',
-        ];
-    
-        try {
-            if (!$this->validate($validationRules)) {
-                return $this->fail($this->validator->getErrors(), 400);
-            }
-    
-            $mainModel = new UserModel();
-            $mainModel->save([
-                'username' => $request->getVar('username'),
-                'password' => $request->getVar('password'),
-                'role' => 'user',
-            ]);
-    
-            return $this->respond(['message' => 'Registration successful'], 201);
-        } catch (\Exception $e) {
-            // Return an error message with additional details
-            return $this->respondServerError([
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-            ]);
-        }
-    }
-    
-    public function login()
-    {
-        $model = new UserModel();
-    
-        $usernameOrEmail = $this->request->getPost('usernameOrEmail');
-        $password = $this->request->getPost('password');
-    
-        if (empty($usernameOrEmail) || empty($password)) {
-            return $this->respond(['message' => 'Invalid input'], 400);
-        }
-    
-        $user = $model->where('username', $usernameOrEmail)
-                      ->orWhere('email', $usernameOrEmail)
-                      ->first();
-    
-        if ($user && password_verify($password, $user['password'])) {
-            $userData = [
-                'user_id' => $user['user_id'],
-                'username' => $user['username'],
-                'email' => $user['email'],
-                'role' => $user['role'],
-            ];
-    
-            session()->set($userData);
-    
-            return $this->respond(['role' => $user['role']], 200);
-        } else {
-            return $this->respond(['message' => 'Invalid credentials'], 401);
-        }
-    }    
+  
 }

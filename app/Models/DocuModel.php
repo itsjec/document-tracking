@@ -8,12 +8,12 @@ class DocuModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'documents';
-    protected $primaryKey       = 'document_id';
+    protected $primaryKey       = 'DocumentID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['document_id','title','purpose','location','received_from', 'date_received', 'required_action', 'status'];
+    protected $allowedFields    = ['DocumentID', 'Title','Author','Purpose','DateReceived','Status','Progress','TrackingNumber','Location','OfficeID'];
 
     // Dates
     protected $useTimestamps = false;
