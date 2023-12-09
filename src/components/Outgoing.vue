@@ -12,13 +12,13 @@
                     <tr>
                       <th>Document ID</th>
                       <th>Title</th>
-                      <th>Description</th>
-                      <th>Type</th>
-                      <th>Sender</th>
+                      <th>Author</th>
+                      <th>Purpose</th>
+                      <th>Tracking Number</th>
                       <th>Location</th>
-                      <th>Date Confirmed</th>
-                      <th>Subject</th>
-                      <th>Confirmation Details</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                      <th>Final Destination Office ID</th>
                       <!-- Add more columns as needed -->
                     </tr>
                   </thead>
@@ -37,17 +37,15 @@
                     </tr>
                     <!-- Loop through your data and populate the table rows -->
                     <tr v-for="(document, index) in documentList" :key="index">
-                      <td>{{ document.documentID }}</td>
+                      <td>{{ document.documentid }}</td>
                       <td>{{ document.title }}</td>
-                      <td>{{ document.description }}</td>
-                      <td>{{ document.type }}</td>
-                      <td>{{ document.sender }}</td>
+                      <td>{{ document.author }}</td>
+                      <td>{{ document.purpose }}</td>
+                      <td>{{ document.trackingnumber }}</td>
                       <td>{{ document.location }}</td>
-                      <td>{{ document.receivedFrom }}</td>
-                      <td>{{ document.dateReceived }}</td>
-                      <td>{{ document.requiredAction }}</td>
                       <td>{{ document.status }}</td>
                       <td>{{ document.action }}</td>
+                      <td>{{ document.finaldestinationofficeid }}</td>
                       <!-- Add more columns as needed -->
                     </tr>
                   </tbody>
