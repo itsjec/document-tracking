@@ -9,6 +9,8 @@ import AdminSent from '../views/Admin/AdminSent.vue'
 import AdminHistory from '../views/Admin/AdminHistory.vue'
 import UserIndex from '../views/User/UserIndex.vue'
 import UserNotification from '../views/User/UserNotification.vue'
+import UserTracking from '../views/User/UserTracking.vue'
+import UserAddDocu from '../views/User/UserAddDocu.vue'
 
 
 const routes = [
@@ -51,6 +53,14 @@ const routes = [
   {
     path: '/usernotif',
     component: UserNotification
+  },
+  {
+    path: '/usertracking',
+    component: UserTracking
+  },
+  {
+    path: '/useradd',
+    component: UserAddDocu
   },
   {
     path: '/about',
