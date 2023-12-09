@@ -99,7 +99,7 @@ export default {
   methods: {
     async getOffices() {
       try {
-        const response = await axios.get('http://localhost:8080/getData');
+        const response = await axios.get('http://document-tracking.test/getData');
         this.offices = response.data;
       } catch (error) {
         console.error('Error fetching offices:', error);

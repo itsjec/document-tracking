@@ -84,25 +84,23 @@
                 <th>Status</th>
                 <th>Progress</th>
                 <th>Location</th>
-                <th>Office ID</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="document in documentList" :key="document.document_id">
-                <td>{{ document.tracking_number }}</td>
-                <td>{{ document.title }}</td>
-                <td>{{ document.author }}</td>
-                <td>{{ document.purpose }}</td>
-                <td>{{ document.date_received }}</td>
+                <td>{{ document.TrackingNumber }}</td>
+                <td>{{ document.Title }}</td>
+                <td>{{ document.Author }}</td>
+                <td>{{ document.Purpose }}</td>
+                <td>{{ document.DateReceived }}</td>
                 <td>
                   <span :class="getStatusBadgeClass(document.status)">
-                    {{ document.status }}
+                    {{ document.Status }}
                   </span>
                 </td>
-                <td>{{ document.progress }}</td>
-                <td>{{ document.location }}</td>
-                <td>{{ document.office_id }}</td>
+                <td>{{ document.Progress }}</td>
+                <td>{{ document.Location }}</td>
                 <td>
                   <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
                     View
@@ -135,7 +133,7 @@ export default {
   methods: {
     async getDocumentList() {
       try {
-        const response = await axios.get('http://localhost:8080/getDocu');
+        const response = await axios.get('/getDocu');
         this.documentList = response.data;
       } catch (error) {
         console.error('Error fetching documents:', error);
