@@ -20,7 +20,7 @@
           <router-link to="/">Log In</router-link>
         </div>
       </div>
-  
+
       <!-- Centered Form -->
       <div class="centered-form">
         <div class="col-md-6 grid-margin stretch-card">
@@ -77,87 +77,86 @@
   </template>
   
   <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        offices: [],
-        formData: {
-          title: '',
-          author: '',
-          purpose: '',
-          dateReceived: '',
-          Location: null,
-        },
-      };
-    },
-    created() {
-      this.getOffices();
-    },
-    methods: {
-      async getOffices() {
-        try {
-          const response = await axios.get('http://localhost:8080/getData');
-          this.offices = response.data;
-        } catch (error) {
-          console.error('Error fetching offices:', error);
-        }
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      offices: [],
+      formData: {
+        title: '',
+        author: '',
+        purpose: '',
+        dateReceived: '',
+        Location: null,
       },
-      async submitDocument() {
-        try {
-          const response = await axios.post('http://localhost:8080/api/documents/insert', this.formData);
-  
-          if (response.data.success) {
-            console.log(response.data.message);
-  
-            // Redirect to /usernotif
-            this.$router.push('/usertracking');
-          } else {
-            console.error('Document insertion failed');
-          }
-        } catch (error) {
-          console.error('Error during document insertion:', error);
-        }
-      },
+      trackingNumber: '',
+    };
+  },
+  created() {
+    this.getOffices();
+  },
+  methods: {
+    async getOffices() {
+      try {
+        const response = await axios.get('http://localhost:8080/getData');
+        this.offices = response.data;
+      } catch (error) {
+        console.error('Error fetching offices:', error);
+      }
     },
-  };
-  </script>
-  
+    async submitDocument() {
+      try {
+        const response = await axios.post('api/documents/insert', this.formData);
+        if (response.data.success) {
+          console.log(response.data.message);
+
+          this.$router.push('/usertracking');
+        } else {
+          console.error('Document insertion failed');
+        }
+      } catch (error) {
+        console.error('Error during document insertion:', error);
+      }
+    },
+  },
+};
+</script>
+
   <style scoped>
   /* Your existing styles */
   .top-bar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 20px;
-	background-color: #333;
-	color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
   }
   
   .logo img {
-	max-height: 40px;
+    max-height: 40px;
   }
   
   .title h1 {
-	margin: 0;
-	font-size: 1.5em;
-	color: #fff;
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
   }
   
   .navigation {
-	display: flex;
+    display: flex;
   }
   
   .navigation router-link {
-	margin-right: 20px;
-	color: #fff;
-	text-decoration: none;
-	font-size: 1em;
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
   }
   
   .navigation router-link:hover {
-	text-decoration: underline;
+    text-decoration: underline;
   }
   
   .centered-form {
