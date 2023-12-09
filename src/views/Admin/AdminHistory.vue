@@ -15,6 +15,7 @@
 <script>
 import AdminNavBar from '@/components/AdminNavBar.vue';
 import AdminDashboard from '@/components/AdminDashboard.vue';
+import History from '@/components/History.vue';
 
 
 export default {
