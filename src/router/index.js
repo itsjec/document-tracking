@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 import LogIn from '../views/LogIn.vue'
 import UserRegistration from '../views/UserRegistration.vue'
 import AdminIndex from '../views/Admin/AdminIndex.vue'
@@ -56,7 +56,8 @@ const routes = [
   },
   {
     path: '/usertracking',
-    component: UserTracking
+    component: UserTracking,
+ 
   },
   {
     path: '/useradd',
@@ -71,7 +72,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ]
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes

@@ -22,6 +22,8 @@
   </template>
   
   <script>
+  import axios from 'axios';
+  
   export default {
 	data() {
 	  return {
@@ -32,30 +34,34 @@
 	  };
 	},
 	methods: {
-		async login() {
-			console.log('Login method triggered');
-			console.log('FormData:', this.formData);
-
-			try {
-			const response = await this.$axios.post('/api/login', {
-				username: this.formData.username,
-				password: this.formData.password,
-			});
-
-			console.log('Response:', response);
-
-			if (response.data.success) {
-				this.$router.push(`/admin/${response.data.officeId}`);
-			} else {
-				console.error('Login failed');
-			}
-			} catch (error) {
-			console.error('Error during login:', error);
-			}
-		},
-	}
+	  async login() {
+		try {
+		const response = await axios.post('http://document-tracking.test/api/login', this.formData);
+		  const token = response.data.token;
+  
+		  localStorage.setItem('token', token);
+  
+		  const decodedToken = this.decodeToken(token);
+  
+		  this.redirectToOfficePage(decodedToken.user_id);
+  
+		} catch (error) {
+		  console.error('Login failed:', error);
+		}
+	  },
+	  decodeToken(token) {
+		const base64Url = token.split('.')[1];
+		const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+		const decoded = JSON.parse(atob(base64));
+		return decoded;
+	  },
+	  redirectToOfficePage(officeId) {
+		this.$router.push(`/admin/${officeId}`);
+	  },
+	},
   };
-  </script>
+  </script>  
+
   
 
 <style>

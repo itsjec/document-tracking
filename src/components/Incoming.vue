@@ -1,102 +1,102 @@
 <template>
-    <div class="container mt-5">
-      <!-- Document Details Table -->
-      <div class="row mt-4">
-        <div class="col-md-12">
-          <div class="card custom-card">
-            <div class="card-body">
-              <h5 class="card-title">Incoming Details</h5>
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Tracking Number</th>
-                      <th>Location</th>
-                      <th>Status</th>
-                      <th>Office ID</th>
-                      <th>Receiver Name</th>
-                      <!-- Add more columns as needed -->
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Sample Document Information -->
-                    <tr>
-                      <td>DOC2023-001</td>
-                      <td> Invoice for Office Supplies</td>
-                      <td>This document is an invoice from our<br>regular office supplies vendor for the<br>recent order placed to restock our<br>inventory.</td>
-                      <td>Financial</td>
-                      <td> XYZ Office Supplies</td>
-                    </tr>
-                    <tr>
-                      <td>DOC2023-002</td>
-                      <td>Invoice for Office Supplies</td>
-                      <td>This is a Purchase Order from our<br>supplier for the supply of office supplies<br>needed for the upcoming quarter.</td>
-                      <td>Financial</td>
-                      <td>ABC Office Supplies</td>
-                    </tr>
-                    <tr>
-                      <td>INV2023001</td>
-                      <td> Monthly Inventory Report</td>
-                      <td>Report on the current status of inventory<br>for the month of January 2023.</td>
-                      <td>Inventory</td>
-                      <td>Warehouse Department</td>
-                    </tr>
-                    <tr>
-                      <td>CSR2023001</td>
-                      <td>Quarterly Customer and<br> Sales Report</td>
-                      <td>Report summarizing customer feedback<br>and sales performance for the first quarter<br> of 2023.</td>
-                      <td>Sales and Customer <br>Feedback</td>
-                      <td>Sales and Marketing<br> Department</td>
-                    </tr>
-                    <tr>
-                      <td>HRR2023001</td>
-                      <td>Monthly HR Performance<br>Report</td>
-                      <td>Report on key human resources metrics<br> and performance indicators for the month<br> of March 2023.</td>
-                      <td>Human Resources</td>
-                      <td>HR Department</td>
-                    </tr>
-                  
-                    <!-- Loop through your data and populate the table rows -->
-                    <tr v-for="(document, index) in documentList" :key="index">
-                      <td>{{ document.documentID }}</td>
-                      <td>{{ document.title }}</td>
-                      <td>{{ document.description }}</td>
-                      <td>{{ document.type }}</td>
-                      <td>{{ document.sender }}</td>
-                      <td>{{ document.location }}</td>
-                      <td>{{ document.receivedFrom }}</td>
-                      <td>{{ document.dateReceived }}</td>
-                      <td>{{ document.requiredAction }}</td>
-                      <td>{{ document.status }}</td>
-                      <td>{{ document.action }}</td>
-                      <!-- Add more columns as needed -->
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+  <div>
+    <div class="page-header">
+      <nav aria-label="breadcrumb">
+      </nav>
+    </div>
+
+    <!-- Document Details Table -->
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <div class="card custom-card">
+          <div class="card-body">
+            <h5 class="card-title">Document Details</h5>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Tracking Number</th>
+                    <th>Title</th>
+                    <th>Purpose</th>
+                    <th>Received From</th>
+                    <th>Date Received</th>
+                    <th>Status</th>
+                    <th>Progress</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="document in documentList" :key="document.document_id">
+                    <td>{{ document.TrackingNumber }}</td>
+                    <td>{{ document.Title }}</td>
+                    <td>{{ document.Purpose }}</td>
+                    <td>{{ document.Author }}</td>
+                    <td>{{ document.DateReceived }}</td>
+                    <td>
+                      <span :class="getStatusBadgeClass(document.status)">
+                        {{ document.Status }}
+                      </span>
+                    </td>
+                    <td>{{ document.Progress }}</td>
+                    <td>{{ document.Location }}</td>
+                    <td>
+                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
+                        Completed
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        documentList: [
-          // Your array of documents here
-        ],
-      };
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      documentList: [],
+    };
+  },
+  created() {
+    this.getDocumentList();
+  },
+  methods: {
+    async getDocumentList() {
+      try {
+        const response = await axios.get('http://document-tracking.test/getDocu');
+        this.documentList = response.data;
+      } catch (error) {
+        console.error('Error fetching documents:', error);
+      }
     },
-  };
-  </script>
-  
-  <style scoped>
-  .custom-card {
-    background-color: #191c24 !important;
-    color: #ffffff !important;
-  }
-  </style>
-  
+    getStatusBadgeClass(status) {
+      const badgeClasses = {
+        'Pending': 'badge badge-danger',
+        'checked': 'badge badge-warning',
+        'under reviewed': 'badge badge-info',
+        'approved': 'badge badge-success',
+      };
+      return badgeClasses[status] || 'badge badge-secondary';
+    },
+    viewDocument(document) {
+      // Implement logic to handle the view button click, e.g., show a modal or navigate to a new page
+      console.log('View button clicked for document:', document);
+    },
+  },
+};
+</script>
+
+<style scoped>
+.custom-card {
+  background-color: #191c24 !important;
+  color: #ffffff !important;
+}
+</style>

@@ -1,79 +1,105 @@
 <template>
-    <div class="container mt-5">
-      <!-- Document Details Table -->
-      <div class="row mt-4">
-        <div class="col-md-12">
-          <div class="card custom-card">
-            <div class="card-body">
-              <h5 class="card-title">Outgoing Report</h5>
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Document ID</th>
-                      <th>Title</th>
-                      <th>Author</th>
-                      <th>Purpose</th>
-                      <th>Tracking Number</th>
-                      <th>Location</th>
-                      <th>Status</th>
-                      <th>Action</th>
-                      <th>Final Destination Office ID</th>
-                      <!-- Add more columns as needed -->
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Sample Document Information -->
-                    <tr>
-                      <td>DOC2023-001</td>
-                      <td>Confirmation of <br>Invoice Receipt</td>
-                      <td>This document serves as confirmation<br>of the receipt of the Invoice for Office<br> Supplies (Document ID: DOC2023-001)<br> from XYZ Office Supplies. The Finance<br>Department has initiated the necessary<br>actions.</td>
-                      <td>Confirmation</td>
-                      <td>MIS</td>
-                      <td>Finance <br>Department</td>
-                      <td>February 15, 2023</td>
-                      <td> Confirmation of Invoice Receipt<br> (Document ID: DOC2023-001)</td>
-                      <td>Confirmation Number: CONF2023-001<br> Date of Confirmation: February 15, 2023</td>
-                    </tr>
-                    <!-- Loop through your data and populate the table rows -->
-                    <tr v-for="(document, index) in documentList" :key="index">
-                      <td>{{ document.documentid }}</td>
-                      <td>{{ document.title }}</td>
-                      <td>{{ document.author }}</td>
-                      <td>{{ document.purpose }}</td>
-                      <td>{{ document.trackingnumber }}</td>
-                      <td>{{ document.location }}</td>
-                      <td>{{ document.status }}</td>
-                      <td>{{ document.action }}</td>
-                      <td>{{ document.finaldestinationofficeid }}</td>
-                      <!-- Add more columns as needed -->
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+  <div>
+    <div class="page-header">
+      <nav aria-label="breadcrumb">
+      </nav>
+    </div>
+
+    <!-- Document Details Table -->
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <div class="card custom-card">
+          <div class="card-body">
+            <h5 class="card-title">Document Details</h5>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Tracking Number</th>
+                    <th>Title</th>
+                    <th>Purpose</th>
+                    <th>Received From</th>
+                    <th>Date Received</th>
+                    <th>Status</th>
+                    <th>Progress</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="document in documentList" :key="document.document_id">
+                    <td>{{ document.TrackingNumber }}</td>
+                    <td>{{ document.Title }}</td>
+                    <td>{{ document.Purpose }}</td>
+                    <td>{{ document.Author }}</td>
+                    <td>{{ document.DateReceived }}</td>
+                    <td>
+                      <span :class="getStatusBadgeClass(document.status)">
+                        {{ document.Status }}
+                      </span>
+                    </td>
+                    <td>{{ document.Progress }}</td>
+                    <td>{{ document.Location }}</td>
+                    <td>
+                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
+                       Mark as Done
+                      </button>
+                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
+                        Send
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        documentList: [
-          // Your array of documents here
-        ],
-      };
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      documentList: [],
+    };
+  },
+  created() {
+    this.getDocumentList();
+  },
+  methods: {
+    async getDocumentList() {
+      try {
+        const response = await axios.get('http://document-tracking.test/getDocu');
+        this.documentList = response.data;
+      } catch (error) {
+        console.error('Error fetching documents:', error);
+      }
     },
-  };
-  </script>
-  
-  <style scoped>
-  .custom-card {
-    background-color: #191c24 !important;
-    color: #ffffff !important;
-  }
-  </style>
-  
+    getStatusBadgeClass(status) {
+      const badgeClasses = {
+        'Pending': 'badge badge-danger',
+        'checked': 'badge badge-warning',
+        'under reviewed': 'badge badge-info',
+        'approved': 'badge badge-success',
+      };
+      return badgeClasses[status] || 'badge badge-secondary';
+    },
+    viewDocument(document) {
+      // Implement logic to handle the view button click, e.g., show a modal or navigate to a new page
+      console.log('View button clicked for document:', document);
+    },
+  },
+};
+</script>
+
+<style scoped>
+.custom-card {
+  background-color: #191c24 !important;
+  color: #ffffff !important;
+}
+</style>
