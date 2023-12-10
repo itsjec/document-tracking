@@ -12,6 +12,7 @@
 		  <label for="username">Username:</label>
 		  <input v-model="formData.username" type="text" class="form-control input-lg" id="username" placeholder="Enter your username" required>
 		</div>
+		<div class="centered-form"></div>
 		<div class="form-group">
 		  <label for="password">Password:</label>
 		  <input v-model="formData.password" type="password" class="form-control input-lg" id="password" placeholder="Enter your password" required>
@@ -69,7 +70,7 @@
 };
 </script>
   
-  <style>
+<style>
   body {
 	color: #ffffff;
 	background: #ffffff; /* Change this to white (#ffffff) */
@@ -93,16 +94,17 @@
   }
   
   .login-form {
-	width: 450px;
-	height: 550px;
-	margin: 100px auto 0; /* Adjust the top margin to move the form down */
-	position: relative;
-	z-index: 1;
-	background: #ffffff; /* Change this to white (#ffffff) */
-	padding: 30px;
-	border-radius: 4px;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust the width as needed */
+  max-width: 400px; /* Set a maximum width to prevent the form from becoming too wide */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 255); /* Semi-transparent background */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
   
   .login-form h2 {
 	margin: 0;
@@ -156,5 +158,5 @@
   .form-check-label input {
 	margin-top: 10px;
   }
-  </style>
   
+  </style>
