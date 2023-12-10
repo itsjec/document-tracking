@@ -14,21 +14,17 @@
                     <th>Step ID</th>
                     <th>Date Started</th>
                     <th>Date Completed</th>
-                    <!-- Add more columns as needed -->
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Sample Document Information -->
                   <tr>
                     
                   </tr>
-                  <!-- Loop through your data and populate the table rows -->
                   <tr v-for="(document, index) in documentList" :key="index">
                     <td>{{ document.documentID }}</td>
                     <td>{{ document.stepid }}</td>
                     <td>{{ document.datestarted }}</td>
                     <td>{{ document.datecompleted }}</td>
-                    <!-- Add more columns as needed -->
                   </tr>
                 </tbody>
               </table>
