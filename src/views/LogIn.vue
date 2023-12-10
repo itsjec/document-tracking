@@ -1,9 +1,12 @@
 <template>
 	<div class="login-form">
-	  <h2 class="text-center">Admin Login</h2>
+	  <!-- Banner Image -->
+	  <img src="@/assets/images/calapan.jpg" alt="Background Image" class="banner-image">
+  
+	  <h2 class="text-center"></h2>
 	  <form @submit.prevent="login">
-		<div class="avatar">
-		  <img :src="require('@/assets/images/avatar.png')" alt="Avatar">
+		<div class="form-group">
+		  <label for="username">Admin Login</label>
 		</div>
 		<div class="form-group">
 		  <label for="username">Username:</label>
@@ -36,7 +39,7 @@
 	methods: {
 	  async login() {
 		try {
-		const response = await axios.post('http://document-tracking.test/api/login', this.formData);
+		  const response = await axios.post('http://document-tracking.test/api/login', this.formData);
 		  const token = response.data.token;
   
 		  localStorage.setItem('token', token);
@@ -60,85 +63,94 @@
 	  },
 	},
   };
-  </script>  
-
+  </script>
   
-
-<style>
-body {
-	color: #4e4e4e;
-	background: #6c15a2;
+  <style>
+  body {
+	color: #ffffff;
+	background: #ffffff; /* Change this to white (#ffffff) */
 	font-family: 'Roboto', sans-serif;
-}
-.form-control {
+	margin: 0;
+	overflow-x: hidden;
+  }
+  
+  .banner-image {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+  }
+  
+  .login-form form {
+	position: relative;
+	z-index: 1;
+  }
+  
+  .login-form {
+	width: 450px;
+	height: 550px;
+	margin: 100px auto 0; /* Adjust the top margin to move the form down */
+	position: relative;
+	z-index: 1;
+	background: #ffffff; /* Change this to white (#ffffff) */
+	padding: 30px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .login-form h2 {
+	margin: 0;
+	font-size: 34px;
+	text-align: center;
+	padding-bottom: 170px;
+  }
+  
+  .form-group {
+	margin-bottom: 15px;
+  }
+  
+  /* Update font color for labels */
+  .form-group label {
+	color: #5e17eb; /* Change the font color to purple */
+  }
+  
+  .form-control {
 	font-size: 16px;
 	border-color: transparent;
 	box-shadow: none !important;
-}
-.form-control:focus {
+  }
+  
+  .form-control:focus {
 	border-color: #91d5a8;
 	background: #e9f5ee;
-}
-.form-control, .btn {        
-	border-radius: 2px;
-}
-.login-form {
-	width: 380px;
-	margin: 0 auto;
-}
-.login-form h2 {
-	margin: 0;
-	padding: 30px 0;
-	font-size: 34px;
-}
-.login-form .avatar {
-	margin: 0 auto 30px;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	z-index: 9;
-	background: #683d99;
-	padding: 15px;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-}
-.login-form .avatar img {
-	width: 100%;
-}
-.login-form form {
-	color: #7a7a7a;
-	border-radius: 4px;
-	margin-bottom: 20px;
-	background: #fff;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	padding: 30px;		
-}
-.login-form .btn, .login-form .btn:active {
+  }
+  
+  .btn {
 	font-size: 16px;
 	line-height: 26px;
 	min-width: 120px;
 	font-weight: bold;
+  }
+  
+  .btn-primary {
 	background: #683d99 !important;
-	border: none;		
-}
-.login-form .btn:hover, .login-form .btn:focus{
+	border: none;
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus {
 	background: #40aa65 !important;
-}
-.form-check-label {
+  }
+  
+  .form-check-label {
 	margin-top: 9px;
-}
-.form-check-label input {
-	margin-top: 3px;
-}
-.login-form a {
-	color: #683d99;
-}	
-.login-form a:hover {
-	text-decoration: underline;
-}
-.hint-text {
-	color: #999;
-	text-align: center;
-	padding-bottom: 15px;
-}
-
-</style>
+	color: #5e17eb;
+  }
+  
+  .form-check-label input {
+	margin-top: 10px;
+  }
+  </style>
+  
