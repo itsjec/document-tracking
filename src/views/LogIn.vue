@@ -34,34 +34,37 @@
 	  };
 	},
 	methods: {
-	  async login() {
-		try {
-		const response = await axios.post('http://document-tracking.test/api/login', this.formData);
-		  const token = response.data.token;
-  
-		  localStorage.setItem('token', token);
-  
-		  const decodedToken = this.decodeToken(token);
-  
-		  this.redirectToOfficePage(decodedToken.user_id);
-  
-		} catch (error) {
-		  console.error('Login failed:', error);
-		}
-	  },
-	  decodeToken(token) {
-		const base64Url = token.split('.')[1];
-		const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-		const decoded = JSON.parse(atob(base64));
-		return decoded;
-	  },
-	  redirectToOfficePage(officeId) {
-		this.$router.push(`/admin/${officeId}`);
-	  },
-	},
-  };
-  </script>  
+		async login() {
+      try {
+        const response = await axios.post('http://document-tracking.test/api/login', this.formData);
+        const token = response.data.token;
+        const officeId = response.data.office_id;
 
+        if (!token || !officeId) {
+          console.error('Token or Office ID not found in the response');
+          return;
+        }
+
+        localStorage.setItem('token', token);
+        localStorage.setItem('office_id', officeId);
+
+        const decodedToken = this.decodeToken(token);
+
+        this.$router.push('/admin');
+      } catch (error) {
+        console.error('Login failed:', error);
+      }
+    },
+
+    decodeToken(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const decoded = JSON.parse(atob(base64));
+      return decoded;
+    },
+  },
+};
+</script>
   
 
 <style>

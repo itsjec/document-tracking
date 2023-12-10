@@ -57,6 +57,13 @@
                     <input v-model="formData.dateReceived" type="date" class="form-control" id="exampleInputDateReceived" required>
                   </div>
                 </div>
+                <!-- Progress -->
+                <div class="form-group row">
+                  <label for="exampleInputPurpose" class="col-sm-3 col-form-label">Action Required</label>
+                  <div class="col-sm-9">
+                    <textarea v-model="formData.progress" class="form-control" id="exampleInputPurpose" placeholder="Description" required></textarea>
+                  </div>
+                </div>
                 <!-- Receiving Office -->
                 <div class="form-group row">
                   <label for="exampleInputReceivingOffice" class="col-sm-3 col-form-label">Receiving Office</label>
@@ -88,6 +95,7 @@ export default {
         author: '',
         purpose: '',
         dateReceived: '',
+        progress: '',
         Location: null,
       },
       trackingNumber: '',

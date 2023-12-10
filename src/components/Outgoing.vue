@@ -17,11 +17,9 @@
                   <tr>
                     <th>Tracking Number</th>
                     <th>Title</th>
-                    <th>Purpose</th>
                     <th>Received From</th>
                     <th>Date Received</th>
                     <th>Status</th>
-                    <th>Progress</th>
                     <th>Location</th>
                     <th>Action</th>
                   </tr>
@@ -30,7 +28,6 @@
                   <tr v-for="document in documentList" :key="document.document_id">
                     <td>{{ document.TrackingNumber }}</td>
                     <td>{{ document.Title }}</td>
-                    <td>{{ document.Purpose }}</td>
                     <td>{{ document.Author }}</td>
                     <td>{{ document.DateReceived }}</td>
                     <td>
@@ -38,7 +35,6 @@
                         {{ document.Status }}
                       </span>
                     </td>
-                    <td>{{ document.Progress }}</td>
                     <td>{{ document.Location }}</td>
                     <td>
                       <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
