@@ -15,9 +15,9 @@
 
       <!-- Navigation -->
       <div class="navigation">
-        <router-link to="/user" style="color: #674188; margin-right: 10px;">Home</router-link>
-        <router-link to="/useradd" style="color: #674188;  margin-right: 10px;">Add Document</router-link>
-        <router-link to="/" style="color: #674188; margin-right: 10px;">Log In</router-link>
+        <router-link to="/user" style="color: #674188; margin-right: 60px;">Home</router-link>
+        <router-link to="/useradd" style="color: #674188;  margin-right: 40px;">Add Document</router-link>
+        <router-link to="/" style="color: #674188; margin-right: 20px;">Log In</router-link>
       </div>
     </div>
 
@@ -83,20 +83,23 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url('@/assets/images/calapan.jpg') center center fixed;
+  background: url('@/assets/images/calafun.png') center center fixed;
   background-size: cover;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
+  margin-bottom: -100px;
 }
 
 .search-bar input {
-  padding: 8px;
+  padding: 7px;
   font-size: 1em;
   margin-right: 8px;
   border: none;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .search-bar button {
