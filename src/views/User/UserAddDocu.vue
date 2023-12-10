@@ -22,11 +22,11 @@
     </div>
       <!-- Centered Form -->
       <div class="centered-form">
-        <div class="centered-search" style="background-color: #C3ACD0;"></div>
+        <div class="centered-search" style="background-color: #772ba3;"></div>
         <div class="col-md-6 grid-margin stretch-card">
-          <div class="card">
+          <div class="card" style="background-image: url('@/assets/images/hoo.png');">
             <div class="card-body">
-              <h4 class="card-title">Document Form</h4>
+              <h4 class="card-title">REGISTER YOUR DOCUMENTS</h4>
               <p class="card-description">Enter document details below</p>
               <form @submit.prevent="submitDocument">
               
@@ -56,13 +56,6 @@
                   <label for="exampleInputDateReceived" class="col-sm-3 col-form-label">Date Received</label>
                   <div class="col-sm-9">
                     <input v-model="formData.dateReceived" type="date" class="form-control" id="exampleInputDateReceived" required>
-                  </div>
-                </div>
-                <!-- Progress -->
-                <div class="form-group row">
-                  <label for="exampleInputPurpose" class="col-sm-3 col-form-label">Action Required</label>
-                  <div class="col-sm-9">
-                    <textarea v-model="formData.progress" class="form-control" id="exampleInputPurpose" placeholder="Description" required></textarea>
                   </div>
                 </div>
                 <!-- Receiving Office -->
@@ -96,7 +89,6 @@ export default {
         author: '',
         purpose: '',
         dateReceived: '',
-        progress: '',
         Location: null,
       },
       trackingNumber: '',
