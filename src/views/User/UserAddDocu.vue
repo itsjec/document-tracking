@@ -15,20 +15,21 @@
   
         <!-- Navigation -->
         <div class="navigation">
-          <router-link to="/user">Home</router-link>
-          <router-link to="/useradd">Add Document</router-link>
-          <router-link to="/">Log In</router-link>
-        </div>
+        <router-link to="/user" style="color: #674188; margin-right: 60px;">Home</router-link>
+        <router-link to="/useradd" style="color: #674188;  margin-right: 40px;">Add Document</router-link>
+        <router-link to="/" style="color: #674188; margin-right: 20px;">Log In</router-link>
       </div>
-
+    </div>
       <!-- Centered Form -->
       <div class="centered-form">
+        <div class="centered-search" style="background-color: #772ba3;"></div>
         <div class="col-md-6 grid-margin stretch-card">
-          <div class="card">
+          <div class="card" style="background-image: url('@/assets/images/hoo.png');">
             <div class="card-body">
-              <h4 class="card-title">Document Form</h4>
+              <h4 class="card-title">REGISTER YOUR DOCUMENTS</h4>
               <p class="card-description">Enter document details below</p>
               <form @submit.prevent="submitDocument">
+              
                 <!-- Title -->
                 <div class="form-group row">
                   <label for="exampleInputTitle" class="col-sm-3 col-form-label">Title</label>
@@ -164,6 +165,14 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100vh;
+  }
+  .centered-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('@/assets/images/calap.png');
+  background-size: cover;
   }
   </style>
   

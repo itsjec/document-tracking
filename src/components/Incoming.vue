@@ -42,7 +42,7 @@
                     <td>{{ document.Location }}</td>
                     <td>
                       <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
-                        Completed
+                        Done
                       </button>
                     </td>
                   </tr>
