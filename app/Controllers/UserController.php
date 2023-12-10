@@ -37,7 +37,7 @@ class UserController extends ResourceController
     
             $whereClause = [
                 'AdminUsername' => $username,
-                'AdminPassword' => $password,
+                'AdminPassword' => $password
             ];
     
             $user = $model->where($whereClause)->first();
@@ -46,16 +46,12 @@ class UserController extends ResourceController
                 return $this->respond(['error' => 'Invalid username or password']);
             }
     
-            // Start the session if not started (make sure to load the session library)
-            if (!session()->isStarted()) {
-                session()->start();
-            }
-    
-            // Set OfficeID in the session
-            $_SESSION['OfficeID'] = $user['OfficeID'];
+            // Use $user['OfficeID'] instead of undefined $officeId
+            session()->set('OfficeID', $user['OfficeID']);
     
             $token = $this->generateToken($user);
     
+            // Use the same key 'office_id' for consistency
             return $this->respond(['token' => $token, 'office_id' => $user['OfficeID']], 200);
         } catch (\Throwable $th) {
             return $this->respond(['error' => 'Login Error: ' . $th->getMessage()]);

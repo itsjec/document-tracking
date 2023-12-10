@@ -46,19 +46,16 @@ class DocuController extends ResourceController
         }
     }    
 
-    public function getDocumentsByOfficeID()
+    public function getDocumentsByOfficeID($officeID)
     {
-        // Get the logged-in user's OfficeID from the session
-        $officeID = session()->get('OfficeID');
-
         // Fetch documents based on the OfficeID
         $documentModel = new DocuModel();
         $documents = $documentModel->getDocumentsByOfficeID($officeID);
-
+    
         // Return the documents as JSON
         return $this->response->setJSON($documents);
     }
-        
+    
 
     public function getDocu()
     {
@@ -80,6 +77,7 @@ class DocuController extends ResourceController
     {
         try {
             $trackingNumber = $this->generateTrackingNumber(); 
+            $progressDefault = 'For Approval';
 
             $data = [
                 'Title' => $this->request->getVar('title'),
@@ -87,7 +85,7 @@ class DocuController extends ResourceController
                 'Purpose' => $this->request->getVar('purpose'),
                 'DateReceived' => date('Y-m-d'), 
                 'Status' => 'Pending',
-                'Progress' => 'For Approval',
+                'Progress' => $progressDefault,
                 'TrackingNumber' => $trackingNumber,
                 'Location' => $this->request->getVar('Location'),
                 'OfficeID' => $this->request->getVar('Location'),
@@ -105,6 +103,8 @@ class DocuController extends ResourceController
             return $this->respond(["message" => "Error: ".$th->getMessage()]);
         }
     }
+
+    
 
     private function generateTrackingNumber()
     {

@@ -11,12 +11,11 @@ class DocuModel extends Model
     protected $table            = 'documents';
     public function getDocumentsByOfficeID($officeID)
     {
-        // Log the SQL query
-        $sql = $this->getLastQuery();
-        log_message('debug', 'SQL Query: ' . $sql);
-    
-        return $this->findAll();
-
+        // Assuming you have a table named 'documents' in your database
+        return $this->db->table('documents')
+            ->where('OfficeID', $officeID)
+            ->get()
+            ->getResult();
     }
     protected $primaryKey       = 'DocumentID';
     protected $useAutoIncrement = true;
