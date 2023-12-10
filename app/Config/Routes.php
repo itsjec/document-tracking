@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('getData', 'UserController::getData');
 $routes->post('api/login', 'UserController::login');
+$routes->get('getDocumentsByOfficeID', 'DocuController::getDocumentsByOfficeID');
 $routes->get('/getDocu', 'DocuController::getDocu');
 $routes->get('/getOffice', 'DocuController::getOffice');
 $routes->group('api', function ($routes) {

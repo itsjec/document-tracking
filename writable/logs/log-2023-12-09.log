@@ -357,3 +357,117 @@ in APPPATH\Controllers\DocuController.php on line 41.
  3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
  4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:04:16 --> Cannot redeclare App\Models\DocuModel::$table
+in APPPATH\Models\DocuModel.php on line 17.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-09 15:04:25 --> Cannot redeclare App\Models\DocuModel::$table
+in APPPATH\Models\DocuModel.php on line 17.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-09 15:04:31 --> Cannot redeclare App\Models\DocuModel::$table
+in APPPATH\Models\DocuModel.php on line 17.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-09 15:05:28 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:07:02 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:08:31 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:21:11 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:21:12 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:21:13 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:21:14 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:21:14 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:21:22 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:22:11 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:22:12 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:22:13 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:22:14 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:25:44 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-09 15:25:53 --> Undefined property: App\Controllers\DocuController::$session
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DocuController::$session', 'D:\\laragon\\www\\document-tracking\\app\\Controllers\\DocuController.php', 39)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()

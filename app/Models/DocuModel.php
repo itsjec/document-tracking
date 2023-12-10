@@ -6,8 +6,18 @@ use CodeIgniter\Model;
 
 class DocuModel extends Model
 {
+
     protected $DBGroup          = 'default';
     protected $table            = 'documents';
+    public function getDocumentsByOfficeID($officeID)
+    {
+        // Log the SQL query
+        $sql = $this->getLastQuery();
+        log_message('debug', 'SQL Query: ' . $sql);
+    
+        return $this->findAll();
+
+    }
     protected $primaryKey       = 'DocumentID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

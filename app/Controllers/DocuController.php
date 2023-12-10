@@ -13,11 +13,24 @@ class DocuController extends ResourceController
     public function __construct()
     {
         header('Access-Control-Allow-Origin: http://localhost:8081');
+        header('Access-Control-Allow-Headers: http://localhost:8081');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Authorization, Content-Type');
+
     }
-    
     public function index()
     {
-        //
+        $officeID = session()->get('OfficeID');
+
+        // Check if OfficeID is set (user is logged in)
+        if ($officeID) {
+            $data['officeID'] = $officeID;
+            return view('/admin', $data);
+        } else {
+            // Handle the case when the user is not logged in
+            // Redirect or display a login page
+            return redirect()->to('/login'); // Change '/login' to your actual login route
+        }
     }
 
     public function getLastTrackingNumber()
@@ -33,6 +46,19 @@ class DocuController extends ResourceController
         }
     }    
 
+    public function getDocumentsByOfficeID()
+    {
+        // Get the logged-in user's OfficeID from the session
+        $officeID = session()->get('OfficeID');
+
+        // Fetch documents based on the OfficeID
+        $documentModel = new DocuModel();
+        $documents = $documentModel->getDocumentsByOfficeID($officeID);
+
+        // Return the documents as JSON
+        return $this->response->setJSON($documents);
+    }
+        
 
     public function getDocu()
     {
@@ -41,7 +67,7 @@ class DocuController extends ResourceController
         $data = $main->findAll();
         return $this->respond($data, 200);
     }
-
+    
     public function getOffice()
     {
         header('Access-Control-Allow-Origin: http://localhost:8081');

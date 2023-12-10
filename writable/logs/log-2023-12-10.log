@@ -1,0 +1,126 @@
+CRITICAL - 2023-12-10 02:25:21 --> Call to a member function set_header() on null
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-10 02:28:24 --> Call to a member function set_header() on null
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-10 02:29:49 --> Call to a member function set_header() on null
+in APPPATH\Controllers\DocuController.php on line 39.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-10 02:33:45 --> Too few arguments to function CodeIgniter\HTTP\Message::setHeader(), 1 passed in D:\laragon\www\document-tracking\app\Controllers\DocuController.php on line 39 and exactly 2 expected
+in SYSTEMPATH\HTTP\MessageTrait.php on line 141.
+ 1 APPPATH\Controllers\DocuController.php(39): CodeIgniter\HTTP\Message->setHeader('Access-Control-Allow-Origin: http://localhost:8081')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\laragon\\www\\document-tracking\\public\\index.php')
+CRITICAL - 2023-12-10 02:57:07 --> Too few arguments to function App\Controllers\DocuController::getDocu(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 37.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 02:59:12 --> Too few arguments to function App\Controllers\DocuController::getDocu(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 37.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 02:59:19 --> Too few arguments to function App\Controllers\DocuController::getDocu(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 37.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 02:59:37 --> Too few arguments to function App\Controllers\DocuController::getDocu(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 37.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 02:59:41 --> Too few arguments to function App\Controllers\DocuController::getDocu(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 37.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 03:00:40 --> Too few arguments to function App\Controllers\DocuController::getDocu(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 37.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocu()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 05:43:28 --> Class "App\Controllers\DocumentModel" not found
+in APPPATH\Controllers\DocuController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 05:47:01 --> Class "App\Controllers\DocumentModel" not found
+in APPPATH\Controllers\DocuController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 06:50:36 --> Too few arguments to function App\Controllers\DocuController::getDocumentsByOfficeID(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 06:51:33 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::where()
+in APPPATH\Models\DocuModel.php on line 14.
+ 1 APPPATH\Controllers\DocuController.php(54): App\Models\DocuModel->getDocumentsByOfficeID(null)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 06:53:21 --> Call to undefined method App\Controllers\DocuController::where()
+in APPPATH\Controllers\DocuController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 06:53:48 --> Call to undefined method App\Controllers\DocuController::where()
+in APPPATH\Controllers\DocuController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 09:16:03 --> Class "App\Controllers\DocumentModel" not found
+in APPPATH\Controllers\DocuController.php on line 58.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 09:45:56 --> Too few arguments to function App\Controllers\DocuController::getDocumentsByOfficeID(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 49.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 09:46:49 --> Too few arguments to function App\Controllers\DocuController::getDocumentsByOfficeID(), 0 passed in D:\laragon\www\document-tracking\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\DocuController.php on line 49.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-10 09:47:19 --> Class "App\Controllers\DocumentModel" not found
+in APPPATH\Controllers\DocuController.php on line 55.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->getDocumentsByOfficeID()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()

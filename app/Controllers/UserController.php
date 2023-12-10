@@ -32,28 +32,34 @@ class UserController extends ResourceController
         try {
             $model = new UserModel();
     
-            $username = $this->request->getVar('username'); 
-            $password = $this->request->getVar('password');  
+            $username = $this->request->getVar('username');
+            $password = $this->request->getVar('password');
     
             $whereClause = [
                 'AdminUsername' => $username,
-                'AdminPassword' => $password
+                'AdminPassword' => $password,
             ];
-            // $user = $model->validateLogin($username, $password);
-            $user = $model->where($whereClause)->first(); // try mo nga ulit
-            if(is_null($user)){
+    
+            $user = $model->where($whereClause)->first();
+    
+            if (is_null($user)) {
                 return $this->respond(['error' => 'Invalid username or password']);
             }
-
-            if ($user) {
-                $token = $this->generateToken($user);
-                return $this->respond(['token' => $token], 200);
-            } else {
-                return $this->respond(['error' => 'Invalid username or password'], 401);
+    
+            // Start the session if not started (make sure to load the session library)
+            if (!session()->isStarted()) {
+                session()->start();
             }
+    
+            // Set OfficeID in the session
+            $_SESSION['OfficeID'] = $user['OfficeID'];
+    
+            $token = $this->generateToken($user);
+    
+            return $this->respond(['token' => $token, 'office_id' => $user['OfficeID']], 200);
         } catch (\Throwable $th) {
             return $this->respond(['error' => 'Login Error: ' . $th->getMessage()]);
-        }        
+        }
     }
     
 
