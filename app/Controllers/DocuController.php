@@ -7,6 +7,9 @@ use CodeIgniter\Restful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\DocuModel;
 use App\Models\OfficeModel;
+use App\Models\ReceivedModel;
+use App\Models\PendingModel;
+use App\Models\CompletedModel;
 
 class DocuController extends ResourceController
 {
@@ -22,14 +25,11 @@ class DocuController extends ResourceController
     {
         $officeID = session()->get('OfficeID');
 
-        // Check if OfficeID is set (user is logged in)
         if ($officeID) {
             $data['officeID'] = $officeID;
             return view('/admin', $data);
         } else {
-            // Handle the case when the user is not logged in
-            // Redirect or display a login page
-            return redirect()->to('/login'); // Change '/login' to your actual login route
+            return redirect()->to('/');
         }
     }
 
@@ -48,15 +48,44 @@ class DocuController extends ResourceController
 
     public function getDocumentsByOfficeID($officeID)
     {
-        // Fetch documents based on the OfficeID
         $documentModel = new DocuModel();
         $documents = $documentModel->getDocumentsByOfficeID($officeID);
     
-        // Return the documents as JSON
+        return $this->response->setJSON($documents);
+    }
+
+    public function getPendingDocumentsByOfficeID($officeID)
+    {
+        $pending = new DocuModel();
+        $documents = $pending->getPendingDocumentsByOfficeID($officeID);
+    
+        return $this->response->setJSON($documents);
+    }
+
+    public function getReceivedDocumentsByOfficeID($officeID)
+    {
+        $received = new DocuModel();
+        $documents = $received->getReceivedDocumentsByOfficeID($officeID);
+    
+        return $this->response->setJSON($documents);
+    }
+
+    public function getCompletedDocumentsByOfficeID($officeID)
+    {
+        $completed= new DocuModel();
+        $documents = $completed->getCompletedDocumentsByOfficeID($officeID);
+    
+        return $this->response->setJSON($documents);
+    }
+
+    public function getHistoryDocumentsByOfficeID($officeID)
+    {
+        $completed= new DocuModel();
+        $documents = $completed->getHistoryDocumentsByOfficeID($officeID);
+    
         return $this->response->setJSON($documents);
     }
     
-
     public function getDocu()
     {
         header('Access-Control-Allow-Origin: http://localhost:8081');
@@ -87,8 +116,8 @@ class DocuController extends ResourceController
                 'Status' => 'Pending',
                 'Progress' => $progressDefault,
                 'TrackingNumber' => $trackingNumber,
-                'Location' => $this->request->getVar('Location'),
-                'OfficeID' => $this->request->getVar('Location'),
+                'Location' => $this->request->getVar('Location.OfficeName'),
+                'OfficeID' => $this->request->getVar('Location.OfficeID'),
             ];
 
             $model = new DocuModel();
@@ -103,8 +132,6 @@ class DocuController extends ResourceController
             return $this->respond(["message" => "Error: ".$th->getMessage()]);
         }
     }
-
-    
 
     private function generateTrackingNumber()
     {
@@ -131,8 +158,89 @@ class DocuController extends ResourceController
         } else {
             return $this->respond(['error' => 'No documents found'], 404);
         }
-    }      
+    }     
+    
+    public function approveDocument($documentId)
+    {
+        try {
+            $documentModel = new DocuModel();
+    
+            $newStatus = $this->request->getJSON()->Status; 
+    
+            $success = $documentModel->updateStatus($documentId, $newStatus);
+    
+            if ($success) {
+                return $this->respond(['message' => 'Document approved successfully'], Response::HTTP_OK);
+            } else {
+                return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
+            }
+        } catch (\Exception $e) {
 
+            log_message('error', 'Exception in approveDocument: ' . $e->getMessage());
+    
+
+            return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }  
+    
+    public function completeDocument($documentId)
+    {
+        try {
+            $documentModel = new DocuModel();
+    
+            $newStatus = $this->request->getJSON()->Status; 
+    
+            $success = $documentModel->updateStatus($documentId, $newStatus);
+    
+            if ($success) {
+                return $this->respond(['message' => 'Document approved successfully'], Response::HTTP_OK);
+            } else {
+                return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
+            }
+        } catch (\Exception $e) {
+
+            log_message('error', 'Exception in approveDocument: ' . $e->getMessage());
+    
+
+            return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    } 
+
+
+    public function sendOutDocument($documentId)
+    {
+        header('Access-Control-Allow-Origin: http://localhost:8081');
+        try {
+            $documentModel = new DocuModel();
+            $newLocation = $this->request->getJSON()->Location; 
+
+            $success = $documentModel->updateLocation($documentId, $newLocation);
+
+            if ($success) {
+                return $this->respond(['message' => 'Document sent out successfully'], Response::HTTP_OK);
+            } else {
+                return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
+            }
+        } catch (\Exception $e) {
+            log_message('error', 'Exception in sendOutDocument: ' . $e->getMessage());
+            return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function searchDocumentByTrackingNumber($trackingNumber)
+    {
+        header('Access-Control-Allow-Origin: http://localhost:8081');
+        $documentModel = new DocuModel();
+
+        $document = $documentModel->where('TrackingNumber', $trackingNumber)->first();
+    
+        if ($document) {
+            return $this->respond($document, 200);
+        } else {
+            return $this->respond(null, 404);
+        }
+    }
+    
     
     
 }

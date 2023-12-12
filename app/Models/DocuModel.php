@@ -11,12 +11,72 @@ class DocuModel extends Model
     protected $table            = 'documents';
     public function getDocumentsByOfficeID($officeID)
     {
-        // Assuming you have a table named 'documents' in your database
         return $this->db->table('documents')
             ->where('OfficeID', $officeID)
             ->get()
             ->getResult();
     }
+
+    public function getPendingDocumentsByOfficeID($officeID)
+    {
+        return $this->db->table('documents')
+            ->where('OfficeID', $officeID)
+            ->where('status', 'Pending') 
+            ->get()
+            ->getResult();
+    }    
+
+    public function getReceivedDocumentsByOfficeID($officeID)
+    {
+        return $this->db->table('documents')
+            ->where('OfficeID', $officeID)
+            ->where('status', 'In Progress') 
+            ->get()
+            ->getResult();
+    }
+    public function getCompletedDocumentsByOfficeID($officeID)
+    {
+        return $this->db->table('documents')
+            ->where('OfficeID', $officeID)
+            ->where('status', 'Completed') 
+            ->get()
+            ->getResult();
+    }
+    public function getHistoryDocumentsByOfficeID($officeID)
+    {
+        return $this->db->table('documents')
+            ->where('OfficeID', $officeID)
+            ->whereIn('status', ['Deleted', 'Sent Out of Office'])
+            ->get()
+            ->getResult();
+    }
+
+    public function updateStatus($documentId, $newStatus)
+    {
+        return $this->set('Status', $newStatus) // Use 'Status' with uppercase 'S'
+                    ->where('DocumentID', $documentId)
+                    ->update();
+    }
+
+    public function updateDocument($documentId, $newStatus, $newOfficeId)
+    {
+        $data = [
+            'Status' => $newStatus,
+            'OfficeID' => $newOfficeId,
+        ];
+
+        $builder = $this->db->table('documents');
+        $builder->where('DocumentID', $documentId);
+        $builder->replace($data);
+
+        // Check if the replace was successful
+        if ($this->db->affectedRows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }    
+
     protected $primaryKey       = 'DocumentID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

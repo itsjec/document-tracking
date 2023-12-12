@@ -4,30 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PendingModel extends Model
+class CompletedModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'pendingdocuments';
-    public function getPendingDocumentsByOfficeID($officeID)
-    {
-        return $this->db->table('pendingdocuments')
-            ->where('OfficeID', $officeID)
-            ->get()
-            ->getResult();
-    }
-    public function deleteFromPending($documentID)
-    {
-        $this->where('DocumentID', $documentID)
-            ->delete();
-    
-        return $this->affectedRows() > 0;
-    }
-    protected $primaryKey       = 'PendingDocumentID';
+    protected $table            = 'completeddocuments';
+    protected $primaryKey       = 'CompletedDocumentID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['PendingDocumentID', 'Title','Author','Purpose','DateReceived','Status','Progress','TrackingNumber','Location','OfficeID','DocumentID'];
+    protected $allowedFields    = ['CompletedDocumentID', 'Title','Author','Purpose','DateReceived','Status','Progress','TrackingNumber','Location','OfficeID','DocumentID'];
 
     // Dates
     protected $useTimestamps = false;
