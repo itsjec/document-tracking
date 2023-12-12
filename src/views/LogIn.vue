@@ -1,31 +1,49 @@
 <template>
-	<div class="login-form">
-	  <!-- Banner Image -->
-	  <img src="@/assets/images/calapan.jpg" alt="Background Image" class="banner-image">
-  
-	  <h2 class="text-center"></h2>
-	  <form @submit.prevent="login">
-		<div class="form-group">
-		  <label for="username">Admin Login</label>
-		</div>
-		<div class="form-group">
-		  <label for="username">Username:</label>
-		  <input v-model="formData.username" type="text" class="form-control input-lg" id="username" placeholder="Enter your username" required>
-		</div>
-		<div class="centered-form"></div>
-		<div class="form-group">
-		  <label for="password">Password:</label>
-		  <input v-model="formData.password" type="password" class="form-control input-lg" id="password" placeholder="Enter your password" required>
-		</div>
-		<div class="form-group clearfix">
-		  <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-		  <button type="submit" class="btn btn-primary btn-lg float-right">Sign in</button>
-		</div>
-	  </form>
-	</div>
-  </template>
-  
-  <script>
+  <body>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Top Bar -->
+    <div class="top-bar" style="background-color: #ffffff; color: #674188;">
+      <!-- Logo -->
+      <div class="logo">
+        <!-- Replace the image source with your logo -->
+        <img :src="require('@/assets/images/logocalapan2.png')" alt="Your Logo">
+      </div>
+
+      <!-- Navigation -->
+      <div class="navigation">
+        <router-link to="/user" style="color: #674188; margin-right: 60px;">Home</router-link>
+        <router-link to="/useradd" style="color: #674188; margin-right: 50px;">Add Document</router-link>
+        <router-link to="/" style="color: #674188; margin-right: 25px;">Log In</router-link>
+      </div>
+    </div>
+
+    <div class="login-container">
+      <div class="login-form">
+        <form @submit.prevent="login">
+          <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+          <h4 class="modal-title">Admin Login</h4>
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input v-model="formData.username" type="text" class="form-control" placeholder="Enter your username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input v-model="formData.password" type="password" class="form-control" placeholder="Enter your password" required>
+          </div>
+          <div class="form-group small clearfix">
+            <label class="form-check-label"><input type="checkbox"> Remember me</label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+        </form>
+        <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>
+      </div>
+    </div>
+  </body>
+</template>
+
+<script>
   import axios from 'axios';
   
   export default {
@@ -69,94 +87,129 @@
   },
 };
 </script>
-  
+
 <style>
-  body {
-	color: #ffffff;
-	background: #ffffff; /* Change this to white (#ffffff) */
-	font-family: 'Roboto', sans-serif;
-	margin: 0;
-	overflow-x: hidden;
+  .login-container {
+    /* Adapted background image */
+    background: url('@/assets/images/plain.png') center center fixed;
+    height: 100vh;
   }
-  
-  .banner-image {
-	width: 100%;
-	height: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
+
+  /* Adapted styles for top bar and navigation */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
   }
-  
-  .login-form form {
-	position: relative;
-	z-index: 1;
+
+  .logo img {
+    max-height: 40px;
   }
-  
-  .login-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%; /* Adjust the width as needed */
-  max-width: 400px; /* Set a maximum width to prevent the form from becoming too wide */
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 255); /* Semi-transparent background */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-}
-  
-  .login-form h2 {
-	margin: 0;
-	font-size: 34px;
-	text-align: center;
-	padding-bottom: 170px;
+
+  .navigation {
+    display: flex;
   }
-  
-  .form-group {
-	margin-bottom: 15px;
+
+  .navigation router-link {
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 1em;
   }
-  
-  /* Update font color for labels */
-  .form-group label {
-	color: #5e17eb; /* Change the font color to purple */
-  }
-  
+
+  /* Adapted styles for form elements */
   .form-control {
-	font-size: 16px;
-	border-color: transparent;
-	box-shadow: none !important;
+    box-shadow: none;
+    border-color: #070707;
   }
-  
+
   .form-control:focus {
-	border-color: #91d5a8;
-	background: #e9f5ee;
+    border-color: #674188;
   }
-  
-  .btn {
-	font-size: 16px;
-	line-height: 26px;
-	min-width: 120px;
-	font-weight: bold;
+
+  .login-form {
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px 0;
   }
-  
-  .btn-primary {
-	background: #683d99 !important;
-	border: none;
+
+  .login-form form {
+    color: #434343;
+    border-radius: 1px;
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
   }
-  
-  .btn-primary:hover,
-  .btn-primary:focus {
-	background: #40aa65 !important;
+
+  .login-form h4 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
   }
-  
-  .form-check-label {
-	margin-top: 9px;
-	color: #5e17eb;
+
+  .login-form .avatar {
+    color: #fff;
+    margin: 0 auto 30px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #674188;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   }
-  
-  .form-check-label input {
-	margin-top: 10px;
+
+  .login-form .avatar i {
+    font-size: 62px;
   }
-  
-  </style>
+
+  .login-form .form-group {
+    margin-bottom: 20px;
+  }
+
+  .login-form .form-control,
+  .login-form .btn {
+    min-height: 40px;
+    border-radius: 2px;
+    transition: all 0.5s;
+    background-color: transparent;
+    color: black;
+  }
+
+  .login-form .btn,
+  .login-form .btn:active {
+    background: #674188 !important;
+    border: none;
+    line-height: normal;
+  }
+
+  .login-form .btn:hover,
+  .login-form .btn:focus {
+    background: rgba(178, 42, 180, 0.933) !important;
+  }
+
+  .login-form .checkbox-inline {
+    float: left;
+  }
+
+  .login-form input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+  }
+
+  .login-form .forgot-link {
+    float: right;
+  }
+
+  .login-form .small {
+    font-size: 13px;
+    color: black;
+  }
+
+  .login-form a {
+    color: black;
+  }
+</style>
