@@ -1,4 +1,27 @@
 <template>
+      <div>
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <!-- Logo -->
+        <div class="logo">
+          <!-- Replace the image source with your logo -->
+          <img :src="require('@/assets/images/logocalapan2.png')" alt="Your Logo">
+        </div>
+  
+        <!-- Title -->
+        <div class="title">
+          <h1>City Hall Document Tracking</h1>
+        </div>
+  
+        <!-- Navigation -->
+        <div class="navigation">
+        <router-link to="/user" style="color: #674188; margin-right: 60px;">Home</router-link>
+        <router-link to="/useradd" style="color: #674188;  margin-right: 40px;">Add Document</router-link>
+        <router-link to="/" style="color: #674188; margin-right: 20px;">Log In</router-link>
+      </div>
+    </div>
+    
+    </div> 
     <div class="success-page">
       <h1>Your Document is already Registered!</h1>
   
@@ -63,6 +86,67 @@
   .note {
     font-size: 25px; /* Adjust the font size as needed */
   }
+  body {
+  margin: 0;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.logo img {
+  max-height: 40px;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.navigation {
+  display: flex;
+}
+
+.navigation router-link {
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.centered-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('@/assets/images/calafun.png') center center fixed;
+  background-size: cover;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: -100px;
+}
+
+.search-bar input {
+  padding: 7px;
+  font-size: 1em;
+  margin-right: 8px;
+  border: none;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+}
   </style>
   
   

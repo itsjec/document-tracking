@@ -9,10 +9,10 @@
         <div class="row">
           <div class="col-8 col-sm-12 col-xl-8 my-auto">
             <div class="d-flex d-sm-block d-md-flex align-items-center">
-              <h2 class="mb-0">5</h2>
+              <h2 class="mb-0">3</h2>
               <p class="text-danger ml-2 mb-0 font-weight-medium">+9</p>
             </div>
-            <h6 class="text-muted font-weight-normal">2.5% Since last month</h6>
+            <h6 class="text-muted font-weight-normal">Approve New Documents</h6>
           </div>
           <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
             <i class="icon-lg mdi mdi-clock text-warning ml-auto"></i>
@@ -33,7 +33,7 @@
               <h2 class="mb-0">15</h2>
               <p class="text-success ml-2 mb-0 font-weight-medium">+9</p>
             </div>
-            <h6 class="text-muted font-weight-normal">8.2% Since last month</h6>
+            <h6 class="text-muted font-weight-normal">Work on these documents !</h6>
           </div>
           <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
             <i class="icon-lg mdi mdi-refresh text-info ml-auto"></i>
@@ -54,7 +54,7 @@
               <h2 class="mb-0">26</h2>
               <p class="text-success ml-2 mb-0 font-weight-medium">+9</p>
             </div>
-            <h6 class="text-muted font-weight-normal">15.3% Since last month</h6>
+            <h6 class="text-muted font-weight-normal">Good Job !!</h6>
           </div>
           <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
             <i class="icon-lg mdi mdi-check text-success ml-auto"></i>
@@ -78,11 +78,8 @@
                     <th>Tracking Number</th>
                     <th>Title</th>
                     <th>Author</th>
-                    <th>Purpose</th>
                     <th>Date Registered</th>
                     <th>Status</th>
-                    <th>Location</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -90,18 +87,11 @@
                     <td>{{ document.TrackingNumber }}</td>
                     <td>{{ document.Title }}</td>
                     <td>{{ document.Author }}</td>
-                    <td>{{ document.Purpose }}</td>
                     <td>{{ document.DateReceived }}</td>
                     <td>
                       <span :class="getStatusBadgeClass(document.Status)">
                         {{ document.Status }}
                       </span>
-                    </td>
-                    <td>{{ document.Location }}</td>
-                    <td>
-                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
-                        Approve
-                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -124,6 +114,8 @@ export default {
     return {
       documents: [],
       errorMessage: null,
+      isConfirmationModalOpen: false,
+      selectedDocument: null,
     };
   },
 
@@ -168,12 +160,15 @@ export default {
         }
       },
 
+
     getStatusBadgeClass(status) {
       const badgeClasses = {
-        'Pending': 'badge badge-danger',
-        'In Progress': 'badge badge-info',
-        'Completed': 'badge badge-success',
-      };
+              'Pending': 'badge badge-danger',
+              'In Progress': 'badge badge-info',
+              'Completed': 'badge badge-success',
+              'Deleted': 'badge badge-warning', // Add style for Deleted status
+              'Sent Out of Office': 'badge badge-primary', // Add style for Sent Out of Office status
+            };
       return badgeClasses[status] || 'badge badge-secondary';
     },
     viewDocument(document) {

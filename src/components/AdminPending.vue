@@ -44,8 +44,8 @@
                       </span>
                     </td>
                     <td>
-                      <button @click="viewDocument(document)" class="btn btn-primary" data-toggle="modal" data-target="#viewDocumentModal">
-                        View
+                      <button @click="approveDocument(document)" class="btn btn-primary">
+                        Approve
                       </button>
                     </td>
                   </tr>

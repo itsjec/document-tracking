@@ -61,12 +61,10 @@
                 <!-- Receiving Office -->
                 <div class="form-group row">
                   <label for="exampleInputReceivingOffice" class="col-sm-3 col-form-label">Receiving Office</label>
-                  <div class="col-sm-9">
-                    <select v-model="formData.Location" class="form-control" id="exampleInputReceivingOffice" required>
-                      <option v-for="office in offices" :key="office.OfficeID" :value="office.OfficeID">{{ office.OfficeName }}</option>
+                    <select v-model="formData.Location" class="form-control" id="newLocation">
+                      <option v-for="office in offices" :key="office.OfficeID" :value="office">{{ office.OfficeName }}</option>
                     </select>
                   </div>
-                </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-dark">Cancel</button>
               </form>
@@ -100,7 +98,7 @@ export default {
   methods: {
     async getOffices() {
       try {
-        const response = await axios.get('http://document-tracking.test/getData');
+        const response = await axios.get('/getData');
         this.offices = response.data;
       } catch (error) {
         console.error('Error fetching offices:', error);
@@ -108,10 +106,11 @@ export default {
     },
     async submitDocument() {
       try {
-        const response = await axios.post('api/documents/insert', this.formData);
+        const response = await axios.post('/api/documents/insert', this.formData);
+        console.log(response.data); // Log the API response
+
         if (response.data.success) {
           console.log(response.data.message);
-
           this.$router.push('/usertracking');
         } else {
           console.error('Document insertion failed');
@@ -131,7 +130,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #ffffff;
     color: #fff;
   }
   

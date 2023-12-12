@@ -1,12 +1,11 @@
 <template>
-<div class="main-container">
+  <div class="main-container">
     <div class="bottom-section">
       <div class="left-column">
-
         <AdminNavBar></AdminNavBar>
       </div>
       <div class="right-column">
-        <Pending></Pending>
+        <Pending @documentApproved="reloadPage"></Pending>
       </div>
     </div>
   </div>
@@ -17,18 +16,22 @@ import AdminNavBar from '@/components/AdminNavBar.vue';
 import AdminDashboard from '@/components/AdminDashboard.vue';
 import Pending from '@/components/Pending.vue';
 
-
 export default {
   components: {
     AdminNavBar,
     AdminDashboard,
     Pending,
-},
-}
+  },
+    methods: {
+    reloadPage() {
+      console.log('Reloading page...');
+      location.reload();
+    },
+  },
+};
 </script>
 
 <style>
-
 .main-container {
   display: flex;
   flex-direction: column;
@@ -53,5 +56,4 @@ export default {
   padding: 20px;
   background-color: #000000;
 }
-
 </style>

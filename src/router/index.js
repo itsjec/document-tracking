@@ -11,7 +11,7 @@ import UserIndex from '../views/User/UserIndex.vue'
 import UserNotification from '../views/User/UserNotification.vue'
 import UserTracking from '../views/User/UserTracking.vue'
 import UserAddDocu from '../views/User/UserAddDocu.vue'
-
+import UserResult from '../views/User/UserResult.vue'
 
 const routes = [
   {
@@ -62,6 +62,10 @@ const routes = [
   {
     path: '/useradd',
     component: UserAddDocu
+  },
+  {
+    path: '/userresult',
+    component: UserResult
   },
   {
     path: '/about',
