@@ -8,24 +8,37 @@
         <img :src="require('@/assets/images/logocalapan2.png')" alt="Your Logo">
       </div>
 
-      <!-- Title -->
-      <div class="title">
-        <h1 style="color: #674188;">City Hall Document Tracking</h1>
-      </div>
-
       <!-- Navigation -->
       <div class="navigation">
         <router-link to="/user" style="color: #674188; margin-right: 60px;">Home</router-link>
-        <router-link to="/useradd" style="color: #674188;  margin-right: 40px;">Add Document</router-link>
+        <router-link to="/useradd" style="color: #674188; margin-right: 40px;">Add Document</router-link>
         <router-link to="/" style="color: #674188; margin-right: 20px;">Log In</router-link>
       </div>
     </div>
 
-    <!-- Centered Search Bar -->
-    <div class="centered-search" style="background-color: #C3ACD0;">
-      <div class="search-bar">
-        <input type="text" v-model="searchQuery" placeholder="Search..." style="background-color: #fff; color: #674188;">
-        <button @click="search" style="background-color: #674188; color: #fff;">Search</button>
+    <!-- Welcome Section and Search Bar -->
+    <div class="centered-search" style="background-color: #C3ACD0; padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+      <div>
+        <h1 style="font-size: 50px; color: #ffffff; margin-bottom: 20px;">
+          Welcome to City Hall Document Tracking Website!
+        </h1>
+        <h3 style="font-size: 24px; color: #ffffff; margin-bottom: 20px;">
+          Please enter your document tracking number to proceed.
+        </h3>
+      </div>
+      <div class="search-bar" style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="Enter Document Tracking Number.."
+          style="background-color: #fff; color: #674188; padding: 15px; font-size: 18px; width: 600px; border: 2px solid #674188; border-radius: 8px;"
+        />
+        <button
+          @click="search"
+          style="background-color: #674188; color: #fff; padding: 15px; font-size: 18px; margin-left: 10px; border: none; border-radius: 8px; cursor: pointer;"
+        >
+          Track Now
+        </button>
       </div>
     </div>
   </div>
@@ -82,9 +95,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: url('@/assets/images/calafun.png') center center fixed;
+  height: 100dvh;
+  background: url('@/assets/images/plain.png') center center fixed;
   background-size: cover;
+
 }
 
 .search-bar {
