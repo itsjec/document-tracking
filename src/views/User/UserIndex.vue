@@ -11,8 +11,8 @@
       <!-- Navigation -->
       <div class="navigation">
         <router-link to="/user" style="color: #674188; margin-right: 60px;">Home</router-link>
-        <router-link to="/useradd" style="color: #674188; margin-right: 40px;">Add Document</router-link>
-        <router-link to="/" style="color: #674188; margin-right: 20px;">Log In</router-link>
+        <router-link to="/useradd" style="color: #674188; margin-right: 50px;">Add Document</router-link>
+        <router-link to="/" style="color: #674188; margin-right: 25px;">Log In</router-link>
       </div>
     </div>
 
