@@ -164,10 +164,7 @@ class DocuController extends ResourceController
     {
         try {
             $documentModel = new DocuModel();
-    
-            $newStatus = $this->request->getJSON()->Status; 
-    
-            $success = $documentModel->updateStatus($documentId, $newStatus);
+            $success = $documentModel->updateStatus($documentId, 'In Progress');
     
             if ($success) {
                 return $this->respond(['message' => 'Document approved successfully'], Response::HTTP_OK);
@@ -175,36 +172,46 @@ class DocuController extends ResourceController
                 return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
             }
         } catch (\Exception $e) {
-
-            log_message('error', 'Exception in approveDocument: ' . $e->getMessage());
-    
-
+            log_message('error', 'Error in approveDocument: ' . $e->getMessage());
             return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
-    }  
+    }
+
+    
     
     public function completeDocument($documentId)
     {
         try {
             $documentModel = new DocuModel();
-    
-            $newStatus = $this->request->getJSON()->Status; 
-    
-            $success = $documentModel->updateStatus($documentId, $newStatus);
+            $success = $documentModel->updateStatus($documentId, 'Completed');
     
             if ($success) {
-                return $this->respond(['message' => 'Document approved successfully'], Response::HTTP_OK);
+                return $this->respond(['message' => 'Document completed successfully'], Response::HTTP_OK);
             } else {
                 return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
             }
         } catch (\Exception $e) {
-
-            log_message('error', 'Exception in approveDocument: ' . $e->getMessage());
-    
-
+            log_message('error', 'Error in completeDocument: ' . $e->getMessage());
             return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
-    } 
+    }
+
+    public function deleteDocument($documentId)
+    {
+        try {
+            $documentModel = new DocuModel();
+            $success = $documentModel->updateStatus($documentId, 'Deleted');
+    
+            if ($success) {
+                return $this->respond(['message' => 'Document completed successfully'], Response::HTTP_OK);
+            } else {
+                return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
+            }
+        } catch (\Exception $e) {
+            log_message('error', 'Error in completeDocument: ' . $e->getMessage());
+            return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
     public function sendOutDocument($documentId)

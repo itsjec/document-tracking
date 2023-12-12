@@ -19,7 +19,9 @@ $routes->group('api', function ($routes) {
     $routes->get('getReceivedDocumentsByOfficeID/(:num)', 'DocuController::getReceivedDocumentsByOfficeID/$1');
     $routes->get('getCompletedDocumentsByOfficeID/(:num)', 'DocuController::getCompletedDocumentsByOfficeID/$1');
     $routes->get('getHistoryDocumentsByOfficeID/(:num)', 'DocuController::getHistoryDocumentsByOfficeID/$1');
-    $routes->put('approveDocument/(:num)', 'Documents::approveDocument/$1');
+    $routes->put('approveDocument/(:num)', 'DocuController::approveDocument/$1');
+    $routes->put('completeDocument/(:num)', 'DocuController::completeDocument/$1');
+    $routes->put('deleteDocument/(:num)', 'DocuController::deleteDocument/$1');
     $routes->put('sendOutDocument/(:num)', 'Documents::sendOutDocument/$1');
 
 });
