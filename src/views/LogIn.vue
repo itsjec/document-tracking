@@ -88,14 +88,7 @@
   background: url('@/assets/images/plain.png') center center fixed;
   height: 100dvh;
 }
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100dvh;
-  background-size: center;
-  
-}
+
 .top-bar {
   display: flex;
   justify-content: space-between;
