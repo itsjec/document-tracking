@@ -207,26 +207,39 @@ export default {
     },
 
     async deleteDocument() {
-      try {
-        const currentDate = new Date().toISOString().split('T')[0]; // Get current date in 'YYYY-MM-DD' format
+        try {
+          // Check if the document is already completed
+          if (this.selectedDocument.Status === 'Deleted') {
+            console.log('Document is already completed. No need to complete again.');
+            return;
+          }
 
-        const response = await axios.put(`/api/approveDocument/${this.selectedDocument.DocumentID}`, {
-          Status: 'Deleted',
-          DateCompleted: currentDate, // Include the current date
-        });
+          const response = await axios.put(`/api/deleteDocument/${this.selectedDocument.DocumentID}`, {
+            Status: 'Deleted',
+          });
 
-        if (response.status === 200) {
-          console.log('Document deleted successfully:', this.selectedDocument);
+          if (response.status === 200) {
+            console.log('Document completed:', this.selectedDocument);
 
-          this.isConfirmationModalOpen = false;
+            // Emit the custom event to notify the parent component
+            this.$emit('documentCompleted');
+          } else {
+            console.error('Failed to update document status:', response.data.error);
+
+            // Handle the error in your application (e.g., display an error message)
+          }
+        } catch (error) {
+          console.error('Error completing document:', error);
+
+          // Handle the error in your application (e.g., display an error message)
+        } finally {
+          // Ensure the modal is closed
+          this.closeConfirmationModal();
+
+          // Refresh documents after completing
           this.fetchDocuments();
-        } else {
-          console.error('Failed to delete document.');
         }
-      } catch (error) {
-        console.error('Error deleting document:', error);
-      }
-    },
+      },
     getStatusBadgeClass(status) {
       const badgeClasses = {
               'Pending': 'badge badge-danger',

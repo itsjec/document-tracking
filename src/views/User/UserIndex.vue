@@ -15,31 +15,27 @@
     </div>
 
     <div class="centered-search" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-    <!-- Welcome Section -->
-      <div>
-        <h1 style="font-size: 50px; color: #2c2e2c; margin-bottom: 20px;">
-          Welcome to City Hall Document Tracking Website!
-        </h1>
-        <h3 style="font-size: 24px; color: #2c2e2c; margin-bottom: 20px;">
-          Please enter your document tracking number to proceed...
-        </h3>
-      </div>
-
-      <!-- Search Bar -->
-      <div class="search-bar" style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="Enter Document Tracking Number.."
-          style="background-color: #fff; color: #674188; padding: 15px; font-size: 18px; width: 600px; border: 2px solid #674188; border-radius: 8px;"
-        />
-        <button
-          @click="searchAndDisplay"
-          style="background-color: #674188; color: #fff; padding: 15px; font-size: 18px; margin-left: 10px; border: none; border-radius: 8px; cursor: pointer;"
-        >
-          Track Now
-        </button>
-      </div>
+    <div>
+      <h1 style="font-size: 50px; color: #2c2e2c; margin-bottom: 20px; text-align: center;">
+        Welcome to City Hall Document Tracking Website!
+      </h1>
+      <h3 style="font-size: 24px; color: #2c2e2c; margin-bottom: 20px; text-align: center;">
+        Please enter your document tracking number to proceed.
+      </h3>
+    </div>
+    <div class="search-bar" style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+      <input
+        type="text"
+        v-model="searchQuery"
+        placeholder="Enter Document Tracking Number.."
+        style="background-color: #fff; color: #674188; padding: 15px; font-size: 18px; width: 600px; border: 2px solid #674188; border-radius: 8px;"
+      />
+      <button
+        @click="searchAndDisplay"
+        style="background-color: #674188; color: #fff; padding: 15px; font-size: 18px; margin-left: 10px; border: none; border-radius: 8px; cursor: pointer;"
+      >
+        Track Now
+      </button>
     </div>
 
       <div v-if="document" class="card mb-3">
@@ -58,6 +54,17 @@
           </div>
         </div>
 
+        <div class="card-body">
+        <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+          <div v-for="(step, index) in steps" :key="index" :class="['step', { completed: index < currentStep }]">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i :class="step.iconClass"></i></div>
+            </div>
+            <h4 class="step-title">{{ step.title }}</h4>
+          </div>
+        </div>
+      </div>
+
         <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
           <div v-for="(step, index) in dynamicSteps" :key="index" :class="{ 'step': true, 'completed': index < currentStep }">
             <div class="step-icon-wrap">
@@ -67,14 +74,16 @@
               <div class="step-icon" v-if="step.title === 'Processing Document'"><i class="pe-7s-tools"></i></div>
               <div class="step-icon" v-if="step.title === 'Document Confirmation'"><i class="pe-7s-news-paper"></i></div>
               <div class="step-icon" v-if="step.title === 'Document Completed'"><i class="pe-7s-check"></i></div>
+              <div class="step-icon" v-if="step.title === 'Ready for Pick Up'"><i class="pe-7s-check"></i></div>
             </div>
             <h4 class="step-title">{{ step.title }}</h4>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
 </template>
+
 <script>
 import axios from 'axios';
 
@@ -132,8 +141,8 @@ export default {
         case 'Completed':
           this.dynamicSteps = [
             { title: 'Document Registered' },
-            { title: 'Approved' },
             { title: 'Document Completed' },
+            { title: 'Ready for Pick Up' },
           ];
           this.currentStep = 2; // Set the current step index
           break;
@@ -212,6 +221,7 @@ export default {
   height: 100vh;
   background: url('@/assets/images/Mindoro.png') center center fixed;
   background-size: cover;
+
 }
 
 body{margin-top:20px;
@@ -328,7 +338,7 @@ body{margin-top:20px;
 }
 
 .bg-faded, .bg-secondary {
-    background-color: #f5f5f5 !important;
+    background-color: #191c24 !important;
 }
 
 /* ... (additional styles if needed) ... */

@@ -69,102 +69,108 @@
 </template>
 
 <script>
-    import axios from 'axios';
+import axios from 'axios';
 
-    export default {
-      props: ['officeID'],
+export default {
+  props: ['officeID'],
 
-      data() {
-        return {
-          documents: [],
-          errorMessage: null,
-          isConfirmationModalOpen: false,  // Add this line
-          selectedDocument: null,
-        };
-      },
+  data() {
+    return {
+      documents: [],
+      errorMessage: null,
+      isConfirmationModalOpen: false,
+      selectedDocument: null,
+    };
+  },
 
-      mounted() {
-        this.fetchDocuments();
-      },
+  mounted() {
+    this.fetchDocuments();
+  },
 
-      methods: {
-        openConfirmationModal(document) {
-        this.selectedDocument = document;
-        this.isConfirmationModalOpen = true;
-      },
+  methods: {
+    openConfirmationModal(document) {
+      this.selectedDocument = document;
+      this.isConfirmationModalOpen = true;
+    },
 
-        closeConfirmationModal() {
-          console.log('Closing modal');
-          this.isConfirmationModalOpen = false;
-        },
-        async fetchDocuments() {
-          try {
-            // Use the passed officeID prop or fetch it from localStorage
-            const officeID = this.officeID || localStorage.getItem('office_id');
-            
-            if (!officeID) {
-              console.error('OfficeID not found in localStorage');
-              return;
-            }
+    closeConfirmationModal() {
+      this.isConfirmationModalOpen = false;
+    },
 
-            const response = await axios.get(`/api/getPendingDocumentsByOfficeID/${officeID}`);
-            
-            // Log response details for debugging
-            console.log('Response Status:', response.status);
-            console.log('Response Headers:', response.headers);
-            console.log('Response Data:', response.data);
+    async fetchDocuments() {
+      try {
+        const officeID = this.officeID || localStorage.getItem('office_id');
 
-            // Check if the data is present
-            if (response.data && response.data.length > 0) {
-              // Filter documents with status "Pending"
-              this.documents = response.data.filter(doc => doc.Status === 'Pending');
-            } else {
-              console.warn('No pending documents found in the response.');
-              this.errorMessage = 'No pending documents found.';
-            }
+        if (!officeID) {
+          console.error('OfficeID not found in localStorage');
+          return;
+        }
 
-            console.log('Pending Documents:', this.documents);
-          } catch (error) {
-            console.error('Error fetching pending documents:', error);
-            this.errorMessage = 'Error fetching pending documents. Please try again.';
-          }
-        },
-        async approveDocument() {
-          try {
-            const response = await axios.put(`/api/approveDocument/${this.selectedDocument.DocumentID}`, {
-              Status: 'In Progress',
-            });
+        const response = await axios.get(`/api/getPendingDocumentsByOfficeID/${officeID}`);
 
-            if (response.status === 200) {
-              console.log('Document approved:', this.selectedDocument);
+        if (response.data && response.data.length > 0) {
+          this.documents = response.data;
+        } else {
+          console.warn('No documents found in the response.');
+          this.errorMessage = 'No documents found.';
+        }
 
-              // Emit the custom event to notify the parent component
-              this.$emit('documentApproved');
+        console.log('Updated Documents:', this.documents);
+      } catch (error) {
+        console.error('Error fetching documents:', error);
+        this.errorMessage = 'Error fetching documents. Please try again.';
+      }
+    },
 
-              // Close the modal
-              this.closeConfirmationModal();  // <-- Call the closeConfirmationModal method
+    async approveDocument() {
+  try {
+    // Check if the document is already in the desired status
+    if (this.selectedDocument.Status === 'In Progress') {
+      console.log('Document is already in progress. No need to approve.');
+      return;
+    }
 
-            } else {
-              console.error('Failed to update document status.');
-            }
-          } catch (error) {
-            console.error('Error approving document:', error);
-          }
-        },
-        getStatusBadgeClass(status) {
-          const badgeClasses = {
-              'Pending': 'badge badge-danger',
-              'In Progress': 'badge badge-info',
-              'Completed': 'badge badge-success',
-              'Deleted': 'badge badge-warning', // Add style for Deleted status
-              'Sent Out of Office': 'badge badge-primary', // Add style for Sent Out of Office status
-            };
+    const response = await axios.put(`/api/approveDocument/${this.selectedDocument.DocumentID}`, {
+      Status: 'In Progress',
+    });
+
+    if (response.status === 200) {
+      console.log('Document approved:', this.selectedDocument);
+
+      // Emit the custom event to notify the parent component
+      this.$emit('documentApproved');
+    } else {
+      console.error('Failed to update document status:', response.data.error);
+
+      // Handle the error in your application (e.g., display an error message)
+    }
+  } catch (error) {
+    console.error('Error approving document:', error);
+
+    // Handle the error in your application (e.g., display an error message)
+  } finally {
+    // Ensure the modal is closed
+    this.closeConfirmationModal();
+
+    // Refresh documents after approving
+    this.fetchDocuments();
+  }
+},
+
+
+    getStatusBadgeClass(status) {
+      const badgeClasses = {
+        'Pending': 'badge badge-danger',
+        'In Progress': 'badge badge-info',
+        'Completed': 'badge badge-success',
+        'Deleted': 'badge badge-warning',
+        'Sent Out of Office': 'badge badge-primary',
+      };
       return badgeClasses[status] || 'badge badge-secondary';
     },
   },
 };
 </script>
-
 
 
 

@@ -64,7 +64,7 @@
          </div>
          <div class="modal-footer">
            <button class="btn btn-secondary" @click="closeConfirmationModal">Cancel</button>
-           <button class="btn btn-danger" @click="approveDocument">Complete</button>
+           <button class="btn btn-danger" @click="completeDocument">Complete</button>
          </div>
        </div>
      </div>
@@ -100,60 +100,66 @@ export default {
         console.log('Closing modal');
         this.isConfirmationModalOpen = false;
     },
-      async fetchDocuments() {
+
+    async fetchDocuments() {
+      try {
+        const officeID = this.officeID || localStorage.getItem('office_id');
+
+        if (!officeID) {
+          console.error('OfficeID not found in localStorage');
+          return;
+        }
+
+        const response = await axios.get(`/api/getReceivedDocumentsByOfficeID/${officeID}`);
+
+        if (response.data && response.data.length > 0) {
+          this.documents = response.data;
+        } else {
+          console.warn('No documents found in the response.');
+          this.errorMessage = 'No documents found.';
+        }
+
+        console.log('Updated Documents:', this.documents);
+      } catch (error) {
+        console.error('Error fetching documents:', error);
+        this.errorMessage = 'Error fetching documents. Please try again.';
+      }
+    },
+    async completeDocument() {
         try {
-          const officeID = localStorage.getItem('office_id');
-          console.log('OfficeID:', officeID);
-
-
-          if (!officeID) {
-            console.error('OfficeID not found in localStorage');
+          // Check if the document is already completed
+          if (this.selectedDocument.Status === 'Completed') {
+            console.log('Document is already completed. No need to complete again.');
             return;
           }
 
-          const response = await axios.get(`/api/getReceivedDocumentsByOfficeID/${officeID}`);
-          
-          // Log response details for debugging
-          console.log('Response Status:', response.status);
-          console.log('Response Headers:', response.headers);
-          console.log('Response Data:', response.data);
+          const response = await axios.put(`/api/completeDocument/${this.selectedDocument.DocumentID}`, {
+            Status: 'Completed',
+          });
 
-          // Check if the data is present
-          if (response.data && response.data.length > 0) {
-            this.documents = response.data;
+          if (response.status === 200) {
+            console.log('Document completed:', this.selectedDocument);
+
+            // Emit the custom event to notify the parent component
+            this.$emit('documentCompleted');
           } else {
-            console.warn('No documents found in the response.');
-            this.errorMessage = 'No documents found.';
-          }
+            console.error('Failed to update document status:', response.data.error);
 
-          console.log('Documents:', this.documents);
+            // Handle the error in your application (e.g., display an error message)
+          }
         } catch (error) {
-          console.error('Error fetching documents:', error);
-          this.errorMessage = 'Error fetching documents. Please try again.';
+          console.error('Error completing document:', error);
+
+          // Handle the error in your application (e.g., display an error message)
+        } finally {
+          // Ensure the modal is closed
+          this.closeConfirmationModal();
+
+          // Refresh documents after completing
+          this.fetchDocuments();
         }
       },
-      async approveDocument() {
-          try {
-            const response = await axios.put(`/api/approveDocument/${this.selectedDocument.DocumentID}`, {
-              Status: 'Completed',
-            });
 
-            if (response.status === 200) {
-              console.log('Document approved:', this.selectedDocument);
-
-              // Emit the custom event to notify the parent component
-              this.$emit('documentApproved');
-
-              // Close the modal
-              this.closeConfirmationModal();  // <-- Call the closeConfirmationModal method
-
-            } else {
-              console.error('Failed to update document status.');
-            }
-          } catch (error) {
-            console.error('Error approving document:', error);
-          }
-        },
       getStatusBadgeClass(status) {
       const badgeClasses = {
         'Pending': 'badge badge-danger',
