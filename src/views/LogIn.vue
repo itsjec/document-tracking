@@ -89,10 +89,12 @@
   height: 100dvh;
 }
 body {
-	color: black;
-	background: #674188;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100dvh;
-	font-family: 'Varela Round', sans-serif;
+  background-size: center;
+  
 }
 .top-bar {
   display: flex;
