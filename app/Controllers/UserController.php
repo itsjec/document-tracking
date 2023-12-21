@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use CodeIgniter\Restful\ResourceController;
+use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\UserModel;
 use Config\JWT as CodeIgniterJWT; // Alias CodeIgniter's JWT class
