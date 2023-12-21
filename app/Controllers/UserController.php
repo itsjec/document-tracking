@@ -46,12 +46,10 @@ class UserController extends ResourceController
                 return $this->respond(['error' => 'Invalid username or password']);
             }
     
-            // Use $user['OfficeID'] instead of undefined $officeId
             session()->set('OfficeID', $user['OfficeID']);
     
             $token = $this->generateToken($user);
     
-            // Use the same key 'office_id' for consistency
             return $this->respond(['token' => $token, 'office_id' => $user['OfficeID']], 200);
         } catch (\Throwable $th) {
             return $this->respond(['error' => 'Login Error: ' . $th->getMessage()]);
