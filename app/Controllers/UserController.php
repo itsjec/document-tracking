@@ -12,14 +12,9 @@ use \Firebase\JWT\JWT;
 
 class UserController extends ResourceController
 {
-    public function __construct()
-    {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
-    }
 
     public function getData()
     {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
         $main = new UserModel();
         $data = $main->findAll();
         return $this->respond($data, 200);

@@ -13,14 +13,6 @@ use App\Models\CompletedModel;
 
 class DocuController extends ResourceController
 {
-    public function __construct()
-    {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
-        header('Access-Control-Allow-Headers: http://localhost:8081');
-        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-        header('Access-Control-Allow-Headers: Authorization, Content-Type');
-
-    }
     public function index()
     {
         $officeID = session()->get('OfficeID');
@@ -35,7 +27,6 @@ class DocuController extends ResourceController
 
     public function getLastTrackingNumber()
     {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
     
         $lastTrackingNumber = DocuModel::orderBy('DocumentID', 'DESC')->first();
     
@@ -88,7 +79,6 @@ class DocuController extends ResourceController
     
     public function getDocu()
     {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
         $main = new DocuModel();
         $data = $main->findAll();
         return $this->respond($data, 200);
@@ -96,7 +86,6 @@ class DocuController extends ResourceController
     
     public function getOffice()
     {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
         $main = new OfficeModel();
         $data = $main->findAll();
         return $this->respond($data, 200);
@@ -257,7 +246,6 @@ class DocuController extends ResourceController
 
     public function searchDocumentByTrackingNumber($trackingNumber)
     {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
         $documentModel = new DocuModel();
 
         $document = $documentModel->where('TrackingNumber', $trackingNumber)->first();
