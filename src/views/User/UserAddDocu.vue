@@ -28,7 +28,7 @@
             <div class="card-body">
               <h4 class="card-title">REGISTER YOUR DOCUMENTS</h4>
               <p class="card-description">Enter document details below</p>
-              <form @submit.prevent="submitDocument">
+              <form>
               
                 <!-- Title -->
                 <div class="form-group row">
@@ -65,7 +65,7 @@
                       <option v-for="office in offices" :key="office.OfficeID" :value="office">{{ office.OfficeName }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="submit" class="btn btn-primary mr-2" @click ="submitDocument">Submit</button>
                 <button class="btn btn-dark">Cancel</button>
               </form>
             </div>
