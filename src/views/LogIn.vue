@@ -60,7 +60,8 @@
       try {
         const response = await axios.post('api/login', this.formData);
         const token = response.data.token;
-        const officeId = response.data.office_id;
+        const decodedToken = this.decodeToken(token);
+        const officeId = decodedToken.office_id;
 
         if (!token || !officeId) {
           console.error('Token or Office ID not found in the response');
@@ -69,8 +70,6 @@
 
         localStorage.setItem('token', token);
         localStorage.setItem('office_id', officeId);
-
-        const decodedToken = this.decodeToken(token);
 
         this.$router.push('/admin');
       } catch (error) {
