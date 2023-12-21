@@ -58,7 +58,7 @@
 	methods: {
 		async login() {
       try {
-        const response = await axios.post('http://document-tracking.test/api/login', this.formData);
+        const response = await axios.post('api/login', this.formData);
         const token = response.data.token;
         const officeId = response.data.office_id;
 

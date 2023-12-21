@@ -12,6 +12,7 @@ import UserNotification from '../views/User/UserNotification.vue'
 import UserTracking from '../views/User/UserTracking.vue'
 import UserAddDocu from '../views/User/UserAddDocu.vue'
 import UserResult from '../views/User/UserResult.vue'
+import Display from '../views/Display.vue'
 
 const routes = [
   {
@@ -66,6 +67,10 @@ const routes = [
   {
     path: '/userresult',
     component: UserResult
+  },
+  {
+    path: '/display',
+    component: Display
   },
   {
     path: '/about',

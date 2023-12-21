@@ -178,34 +178,42 @@ export default {
     },
 
     async sendOutDocument() {
-      try {
-        const response = await axios.put(`/api/approveDocument/${this.selectedDocument.DocumentID}`, {
-          Status: 'Sent Out of Office',
+    try {
+        const approveResponse = await axios.put(`/api/approveDocument/${this.selectedDocument.DocumentID}`, {
+            Status: 'Pending',
         });
 
-        if (response.status === 200) {
-          console.log('Document deleted successfully:', this.selectedDocument);
+        if (approveResponse.status === 200) {
+            console.log('Document approved successfully:', this.selectedDocument);
 
-          // Update the OfficeID
-          const locationResponse = await axios.put(`/api/sendOutDocument/${this.selectedDocument.DocumentID}`, {
-            Location: this.selectedLocation.OfficeID,
-          });
+            const updateOfficeIDResponse = await axios.put(`/api/updateOfficeID/${this.selectedDocument.DocumentID}`, {
+                OfficeID: this.selectedLocation.OfficeID,
+            });
 
-          if (locationResponse.status === 200) {
-            console.log('Document sent out successfully:', this.selectedDocument);
-            this.isSendOutModalOpen = false;
-            this.fetchDocuments();
-          } else {
-            console.error('Failed to update document location.');
-          }
+            if (updateOfficeIDResponse.status === 200) {
+                console.log('OfficeID updated successfully:', this.selectedDocument);
+
+                const locationResponse = await axios.put(`/api/sendOutDocument/${this.selectedDocument.DocumentID}`, {
+                    Location: this.selectedLocation.OfficeName, 
+                });
+
+                if (locationResponse.status === 200) {
+                    console.log('Document sent out successfully:', this.selectedDocument);
+                    this.isSendOutModalOpen = false;
+                    this.fetchDocuments();
+                } else {
+                    console.error('Failed to update document location:', locationResponse.data.error);
+                }
+            } else {
+                console.error('Failed to update OfficeID in the document:', updateOfficeIDResponse.data.error);
+            }
         } else {
-          console.error('Failed to delete document.');
+            console.error('Failed to approve document:', approveResponse.data.error);
         }
-      } catch (error) {
-        console.error('Error deleting document:', error);
-      }
-    },
-
+    } catch (error) {
+        console.error('Error sending out document:', error);
+    }
+},
     async deleteDocument() {
         try {
           // Check if the document is already completed
