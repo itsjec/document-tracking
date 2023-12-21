@@ -22,7 +22,8 @@ $routes->group('api', function ($routes) {
     $routes->put('approveDocument/(:num)', 'DocuController::approveDocument/$1');
     $routes->put('completeDocument/(:num)', 'DocuController::completeDocument/$1');
     $routes->put('deleteDocument/(:num)', 'DocuController::deleteDocument/$1');
-    $routes->put('sendOutDocument/(:num)', 'Documents::sendOutDocument/$1');
+    $routes->put('sendOutDocument/(:num)', 'Docu::sendOutDocument/$1');
+    $routes->put('updateOfficeID/(:num)', 'DocuController::updateOfficeID/$1');
 
 });
 

@@ -75,7 +75,12 @@ class DocuModel extends Model
         } else {
             return false;
         }
-    }    
+    }
+    
+    public function updateLocation($documentId, $newLocation)
+    {
+        return $this->where('DocumentID', $documentId)->update(['Location' => $newLocation]);
+    }
 
     protected $primaryKey       = 'DocumentID';
     protected $useAutoIncrement = true;

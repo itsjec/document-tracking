@@ -213,26 +213,47 @@ class DocuController extends ResourceController
         }
     }
 
-
     public function sendOutDocument($documentId)
     {
-        header('Access-Control-Allow-Origin: http://localhost:8081');
         try {
             $documentModel = new DocuModel();
-            $newLocation = $this->request->getJSON()->Location; 
-
-            $success = $documentModel->updateLocation($documentId, $newLocation);
-
+            $success = $documentModel->updateStatus($documentId, 'Pending');
+    
             if ($success) {
-                return $this->respond(['message' => 'Document sent out successfully'], Response::HTTP_OK);
+                return $this->respond(['message' => 'Document completed successfully'], Response::HTTP_OK);
             } else {
                 return $this->respond(['error' => 'Document not found or update failed'], Response::HTTP_NOT_FOUND);
             }
         } catch (\Exception $e) {
-            log_message('error', 'Exception in sendOutDocument: ' . $e->getMessage());
+            log_message('error', 'Error in completeDocument: ' . $e->getMessage());
             return $this->respond(['error' => 'Internal Server Error: ' . $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function updateOfficeID($documentId, $newOfficeID)
+    {
+        $newOffice = $this->find($newOfficeID);
+    
+        if ($newOffice) {
+            $newOfficeName = $newOffice['OfficeName'];
+
+            $data = [
+                'OfficeID' => $newOfficeID,
+                'Location' => $newOfficeName,
+            ];
+    
+            // Use your actual table name and primary key column name
+            $this->where('DocumentID', $documentId)->update($data);
+    
+            // Check if the update was successful
+            return $this->db->affectedRows() > 0;
+        } else {
+            // Handle the case where the new OfficeID is not found
+            return false;
+        }
+    }
+    
+    
 
     public function searchDocumentByTrackingNumber($trackingNumber)
     {

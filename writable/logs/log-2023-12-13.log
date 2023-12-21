@@ -1,0 +1,48 @@
+CRITICAL - 2023-12-13 00:28:02 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('85')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 00:28:08 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('85')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 00:35:30 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('87')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 00:53:05 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('90')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 00:53:08 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('90')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 01:38:33 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('90')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 01:57:24 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->approveDocument('83')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 01:57:49 --> Class "App\Controllers\Response" not found
+in APPPATH\Controllers\DocuController.php on line 206.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocuController->deleteDocument('83')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocuController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(87): CodeIgniter\CodeIgniter->run()
