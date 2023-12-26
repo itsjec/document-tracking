@@ -57,7 +57,7 @@ class UserController extends ResourceController
         $key = getenv('JWT_SECRET');
 
         $payload = [
-            'user_id' => $user['OfficeID'],
+            'office_id' => $user['OfficeID'],
             'iat'     => time(),
             'exp'     => time() + 3600,
         ];
