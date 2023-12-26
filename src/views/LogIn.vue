@@ -35,7 +35,7 @@
             <label class="form-check-label"><input type="checkbox"> Remember me</label>
             <a href="#" class="forgot-link">Forgot Password?</a>
           </div>
-          <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+          <button type="submit" class="btn btn-primary btn-block btn-lg" @click ="login">Log In</button>
         </form>
         <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>
       </div>
