@@ -238,8 +238,6 @@ class DocuController extends ResourceController
             return false;
         }
     }
-    
-    
 
     public function searchDocumentByTrackingNumber($trackingNumber)
     {
