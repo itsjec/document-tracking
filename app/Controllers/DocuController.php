@@ -7,9 +7,6 @@ use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\DocuModel;
 use App\Models\OfficeModel;
-//use App\Models\ReceivedModel;
-//use App\Models\PendingModel;
-//use App\Models\CompletedModel;
 
 class DocuController extends ResourceController
 {
