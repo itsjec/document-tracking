@@ -20,7 +20,7 @@
 
     <div class="login-container">
       <div class="login-form">
-        <form @submit.prevent="login">
+        <form>
           <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
           <h4 class="modal-title">Admin Login</h4>
           <div class="form-group">
