@@ -63,6 +63,8 @@
         const decodedToken = this.decodeToken(token);
         const officeId = decodedToken.office_id;
 
+        console.log('Response Data:', response.data);
+        
         if (!token || !officeId) {
           console.error('Token or Office ID not found in the response');
           return;
